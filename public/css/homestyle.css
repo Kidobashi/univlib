@@ -1,0 +1,71 @@
+body{
+    background: rgb(108, 231, 128);
+}
+
+.card-header {
+    background: rgb(245, 248, 43);
+    box-shadow: 3px 2px 5px rgba(5, 5, 5, 0.986);
+    backdrop-filter: blur(5.3px);
+    -webkit-backdrop-filter: blur(3.3px);
+    width: 100%;
+}
+
+.card {
+    position: absolute;
+    left: 135px;
+    width: 80%;
+    height: 80%;
+    background: rgba(235, 235, 235, 0.48);
+    border-radius: 16px;
+    box-shadow: 5px 8px 7px rgba(5, 5, 5, 0.986);
+    backdrop-filter: blur(5.3px);
+    -webkit-backdrop-filter: blur(3.3px);
+}
+
+.card1 {
+    width: 17rem; 
+    height: 20rem;
+    background-color: aquamarine;
+    margin-right: 43px;
+    border: 2px solid black;
+    background: rgba(235, 235, 235, 0.48);
+    border-radius: 16px;
+    box-shadow: 5px 8px 7px rgba(5, 5, 5, 0.986);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+}
+
+.card2 {
+    width:17rem;
+    background-color: aquamarine;
+    margin-left: 43px;
+    border: 2px solid black;
+    background: rgba(235, 235, 235, 0.48);
+    border-radius: 16px;
+    box-shadow: 5px 8px 7px rgba(5, 5, 5, 0.986);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+}
+
+nav.navi {
+    background: rgba(235, 235, 235, 0.48);
+    border-radius: 5px;
+    box-shadow: 5px 8px 7px rgba(5, 5, 5, 0.986);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+}
+
+.navbar {
+    box-shadow: 5px 8px 7px rgba(5, 5, 5, 0.986);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+    z-index: 2;
+}
+
+.opt {
+    position: absolute;
+    top: 110px;
+    left: 333px;
+    display: flex;
+    border: 2px;
+}

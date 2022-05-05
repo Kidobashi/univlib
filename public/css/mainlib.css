@@ -1,0 +1,217 @@
+.glass-panel {
+  position: relative;
+  bottom: 1px;
+  height: 500px;
+  color: #fff;
+  margin: 40px auto;
+  background-color: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+  border-radius: 15px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.mb-3 {
+  position: relative;
+  bottom: 95px;
+}
+
+input[type=text], select {
+  position: relative;
+  top: 50px;
+  width: 50%;
+  padding: 8px 16px;
+  margin: 6px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 30px;
+  text-align: center;
+  background-color: #ccc;
+}
+
+input[type=text]:hover {
+  background: rgba( 255, 255, 255, 0.1 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.submit{
+  position: relative;
+  bottom: 10px;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.submit:hover {
+  background-color: #3e8e41
+}
+
+.submit:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+.glass-panel1 {
+    top: 100px;
+    position: relative;
+    max-width: 800px;
+    align-items: center;
+    left: 140px;
+    display: flex;
+    color: #fff;
+    margin: 40px auto;
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    border-radius: 15px;
+    padding: 32px;
+    backdrop-filter: blur(10px);
+}
+
+.glass-toolbar {
+  position: relative;
+  top: -100px;
+}
+
+.glass-button {
+  display: inline-block;
+  padding: 24px 32px;
+  border: 0;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(30px);
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.glass-button:hover {
+  background-color: rgba(19, 14, 14, 0.986);
+  color: gold;
+  box-shadow: 0 5px;
+}
+
+.glass-button:active {
+  box-shadow: 0 5px gold;
+  transform: translateY(4px);
+}
+
+.glass-button::after {
+  box-shadow: 0 5px black;
+  transition: 20sec;
+}
+
+
+/* Extra styles for demo */
+/* Article:  https://superdevresources.com/glassmorphism-ui-css/ */
+body {
+  background: url("/images/libbg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.glass-panel { 
+  max-width: 800px;
+}
+
+.glass-button {
+  margin: 5px;
+  margin-top: 40px;
+}
+
+.glass-panel h1, .glass-panel h1 a {
+  position: relative;
+  top: -15px;
+  min-height: 100px;
+  width: 90%;
+  max-width: 700px;
+  vertical-align: middle;
+  text-align: center;
+  margin: 0 auto;
+  text-decoration: none;
+  color: #fff;
+  padding-top: 60px;
+  color: rgba(255,255,255,0.8);
+}
+
+p {
+  position: relative;
+  bottom: 30px;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 32px;
+  color: rgba(255,255,255,0.6);
+}
+
+select option{
+  font-size: 28px;
+}
+
+.alert{
+  position: absolute;
+  align-items: center;
+  right: 52px;
+  bottom: 10px;
+  height:50px;
+  background-color: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  width: 80%;
+  border-radius: 15px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  font-weight: 400;
+}
+
+.alert::after{
+  transition-delay: 3000ms;
+  display: none;
+}
+
+.alert h3{
+  text-shadow: 0 0 2px #ccc;
+}
+
+@keyframes dropIn{
+  from {transform: translateY(-500px);}
+  to { transform: translateY(0);}
+}
+
+.card{
+  animation: dropIn 1s ease forwards;
+}
+
+.card ace {
+  animation-delay: 100ms;
+}
+
+.card deuce {
+  animation-delay: 200ms;
+}
+
+.card trey {
+  animation-delay: 300ms;
+}

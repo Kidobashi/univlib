@@ -1,0 +1,135 @@
+/* START of body CSS */
+.logo img {
+    width: 95%;
+    border: 2.5px;
+    border-radius: 30px;
+}
+
+.logo {
+    position: fixed;
+    top:20px;
+    left:30px;
+    width: 180px;
+    height:180px;
+}
+
+.logout button{
+    background-color: #176817;
+    color: white;
+    position: fixed;
+    right: 30px;
+    top: 20px;
+    width:120px;
+    height: 50px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.33);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+html, body {
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+    place-items: center content;
+}
+
+.full-height {
+    align-items:center;
+    display: flex;
+}
+
+/* END of body CSS */
+
+/**********************************/
+
+/* START of BGIMG CSS */
+#coverimg {
+    /* The image used */
+    background-image: url("/images/libbg.jpg");
+    padding: 30px;
+    /* Full height */
+    height: 100%;
+    width: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* END of BGIMG CSS */
+
+/**********************************/
+
+/* START of MAIN PAGE CSS */
+.header h1{
+    position: relative;
+    text-align: center;
+    top: 55px;
+    left: 250px;
+    color: #fff;
+    width: 80%;
+    background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.header {
+    position: absolute;
+    color: #fff;
+}
+
+/* END of MAIN PAGE CSS */
+
+/***************************(auto-fit, minmax(200px,1fr));*******/
+
+/* START of CARDS CSS */
+
+.card{
+    right:22px;
+    max-width: 18rem;
+    min-width: 16rem;
+    margin-left: 66px;
+    background: rgba(235, 235, 235, 0.48);
+    border-radius: 16px;
+    box-shadow: 5px 8px 7px rgba(5, 5, 5, 0.986);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+    border: 5px solid #ecd44a;
+    animation: hcard 3.215s infinite;
+}
+
+.card:hover {
+    background: rgba(70, 233, 64, 0.48);
+    border-radius: 16px;
+    box-shadow: 5px 8px 7px rgba(5, 5, 5, 0.986);
+    backdrop-filter: blur(0.3px);
+    -webkit-backdrop-filter: blur(0.3px);
+    border: 5px solid #ecd44a;
+}
+
+.card-img-top {
+    width: 100%;
+    border: 2.5px solid #296e01;
+    border-radius: 30px;
+    transition: margin 0.2s ease-in-out;
+}
+
+h2 {
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+}
+/* END of CARDS CSS */
+  
+/**********************************/
