@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://172.16.3.25/librarylogsystem/'),
 
     'asset_url' => env('ASSET_URL'),
 

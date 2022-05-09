@@ -40,7 +40,7 @@
             @endforeach
         </tbody>
     </table>
-    <a href="{{ url('/invoice?reportDate='.$repDate) }}" class="btn btn-success" style="float: right;">Generate PDF</a>
+    <a href="{{ url('reports/reportDate='.$repDate) }}" class="btn btn-success" style="float: right;">Generate PDF</a>
     </form>
 </div>
 @endsection

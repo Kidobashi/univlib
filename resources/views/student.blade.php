@@ -12,7 +12,7 @@
         <h1><a href="/mainlib">SECTIONS OF CMU MAIN LIBRARY</a></h1>
         <form action="{{ route('verify') }}" method="GET">
         <div class="mb-3">
-            <input type="text" class="form-control" name="verify" placeholder="Your Student ID Number..." required>
+            <input type="text" class="form-control" name="verify" placeholder="Enter your name" required>
         </div>
         <p>Click the button on which section of the CMU Main Library you wish to go.</p>
         <div class="glass-toolbar">

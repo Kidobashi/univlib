@@ -54,13 +54,13 @@ Route::get('/reports', function(){
     return view('reports/reports');
 });
 
-Route::get('/invoice', function(){
+//Route::get('/invoice', function(){
     //return view('reports/invoice');
-    $pdf = PDF::loadView('reports/invoice');
-    return $pdf->download('invoice.pdf');
-});
+   // $pdf = PDF::loadView('reports/invoice');
+    //return $pdf->download('invoice.pdf');
+// });
 
-Route::get('/invoice', [ReportsController::class, 'invoice'])->name('reportDate');
+//Route::get('/invoice', [ReportsController::class, 'invoice'])->name('reportDate');
 Route::get('/reports', [ReportsController::class, 'index']);
 Route::get('/reports', [ReportsController::class, 'getReports'])->name('reportDate');
 Route::get('/students', [StudentsController::class, 'index']); 
