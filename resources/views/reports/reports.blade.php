@@ -10,7 +10,7 @@
     <img src="/images/cmulogo.png" alt="CMUlogo" style="float:left;width: 100px; height:100px;">
     <h2 style="position: absolute; left: 380px;">Central Mindanao University</h2>
     <h3 value="">{{ $repDate }}</h3>
-    <table class="table" style="margin: 40px 0;">
+    <table class="table" id='reports' style="margin: 40px 0;">
         <thead>
             <th scope="col">ID Number</th>
             <th scope="col">Name</th>
@@ -40,7 +40,23 @@
             @endforeach
         </tbody>
     </table>
-    <a href="{{ url('reports/reportDate='.$repDate) }}" class="btn btn-success" style="float: right;">Generate PDF</a>
+    <a class="btn btn-success" style="float: right;">Generate PDF</a>
     </form>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#reports').Datable({
+            dom: '<"mt-4 pb-0 d-inline pl-2"B>frtip',
+            buttons: [
+                {
+                    extend: 'csvHTML5',
+                    filename: 'Reports',
+                    title: ' ',
+                    text: '<si class ="fa-solid fa-download ml-5"></i> Visit Reports'
+                },
+            ]
+        });
+    });
+</script>
 @endsection

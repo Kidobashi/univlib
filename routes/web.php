@@ -42,10 +42,6 @@ Route::get('/dash', function(){
     return view('usermngt/dashboard');
 });
 
-Route::get('/visitor', function(){
-    return view('visitor');
-});
-
 Route::get('/faculty', function(){
     return view('faculty');
 });

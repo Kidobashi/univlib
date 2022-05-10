@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
             $table->string("idNumber")->nullable();
-            $table->string("studentName");
+            $table->string("studentName")->nullable();
             $table->string("college")->nullable();
             $table->string("course")->nullable();
             $table->string("section")->nullable();
