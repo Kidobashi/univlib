@@ -11,7 +11,7 @@
     <div class="glass-panel">
         <h1><a href="/mainlib">SECTIONS OF CMU MAIN LIBRARY</a></h1>
         <form action="{{ route('verify') }}" method="GET">
-            <p>If you are student input ID number otherwise just name is enough. Thank You. DO NOT FUCKING IGNORE></p>
+            <p>If you are student input ID number otherwise just name is enough. Thank You. DO NOT IGNORE</p>
         <div class="mb-3">
             <input type="text" class="form-control" name="verify" placeholder="Enter your name" required>
         </div>
