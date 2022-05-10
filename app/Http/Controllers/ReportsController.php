@@ -6,6 +6,7 @@ use App\Models\Visits;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use PDF;
 
 class ReportsController extends Controller
 {
@@ -29,8 +30,10 @@ class ReportsController extends Controller
         }
     }
 
-    public function invoice(Request $report){
-        return view('reports.invoice');
+    public function downloadPDF(){
+        $visits = Visits::all();
+        $pdf = PDF::loadView('reports.reports', compact('visits'));
+        return $pdf->download('visits.pdf');    
     }
 
 }

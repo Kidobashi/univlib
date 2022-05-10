@@ -13,7 +13,7 @@
     <table class="table" id='reports' style="margin: 40px 0;">
         <thead>
             <th scope="col">ID Number</th>
-            <th scope="col">Name</th>
+            <th scope="co l">Name</th>
             <th scope="col">College</th>
             <th scope="col">Course</th>
             <th scope="col">Section</th>
@@ -40,7 +40,7 @@
             @endforeach
         </tbody>
     </table>
-    <a class="btn btn-success" style="float: right;">Generate PDF</a>
+    <a class="btn btn-primary" href="{{ URL::to('/reports/pdf') }}">Export to PDF</a>
     </form>
 </div>
 

@@ -57,11 +57,14 @@ Route::get('/reports', function(){
 // });
 
 //Route::get('/invoice', [ReportsController::class, 'invoice'])->name('reportDate');
+Route::get('/reports/pdf', [StudentsController::class, 'downloadPDF']);
 Route::get('/reports', [ReportsController::class, 'index']);
 Route::get('/reports', [ReportsController::class, 'getReports'])->name('reportDate');
 Route::get('/students', [StudentsController::class, 'index']); 
 Route::get('/verify', [StudentsController::class, 'checkId'])->name('verify'); 
-Route::get('/visitor', [VisitorsController::class, 'storeVisitor'])->name('visitor'); 
+Route::get('/visitor', [VisitorsController::class, 'storeVisitor'])->name('visitor');
+Route::get('/', [VisitorsController::class, 'index']);  
+
 
 //Route::get('/', [ReportsController::class, 'index']);
 //Route::get('/', [StudentsController::class, 'checkId'])->name('data'); 

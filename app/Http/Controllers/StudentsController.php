@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Students;
 use App\Models\Visits;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
+use PDF;    
 
 class StudentsController extends Controller
 {
@@ -45,6 +47,19 @@ class StudentsController extends Controller
 
         //return dd($data);
 
+    }
+
+    public function downloadPDF(){
+        $visits = Visits::all();
+        $pdf = PDF::loadView('reports.reports', compact('visits'));
+        return $pdf->download('visits.pdf');    
+    }
+
+    function createPDF(){
+        $data  = Visits::all();
+        view()->share('visits', $data);
+        $pdf = PDF::loadView('pdf_view' , $data);
+        return $pdf->download('pdf_file.pdf');
     }
 
     function store(Request $id)

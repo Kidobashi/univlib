@@ -10,7 +10,6 @@
     <div class="card" id="card">
         <img src="/images/cmulogo.png" alt="CMUlogo" style="float:left;width: 100px; height:100px;">
         <h2 style="position: absolute; left: 380px;">Central Mindanao University</h2>
-        <h3 value="">{{ $repDate }}</h3>
         <table class="table" style="margin: 40px 0;">
             <thead>
                 <th scope="col">ID Number</th>
