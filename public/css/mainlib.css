@@ -29,16 +29,8 @@ input[type=text], select {
   box-sizing: border-box;
   font-size: 30px;
   text-align: center;
+  color: black;
   background-color: #ccc;
-}
-
-input[type=text]:hover {
-  background: rgba( 255, 255, 255, 0.1 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 6px );
-  -webkit-backdrop-filter: blur( 6px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .submit{
@@ -87,22 +79,6 @@ input[type=text]:hover {
 .glass-toolbar {
   position: relative;
   top: -100px;
-}
-
-.glass-button {
-  display: inline-block;
-  padding: 24px 32px;
-  border: 0;
-  text-decoration: none;
-  border-radius: 15px;
-  background-color: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(30px);
-  color: rgba(255,255,255,0.8);
-  font-size: 14px;
-  letter-spacing: 2px;
-  cursor: pointer;
-  text-transform: uppercase;
 }
 
 .glass-button:hover {

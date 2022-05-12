@@ -6,6 +6,7 @@ use App\Models\Visits;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use PDF;
 
 class ReportsController extends Controller
 {

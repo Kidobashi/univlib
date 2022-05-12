@@ -40,7 +40,8 @@
             @endforeach
         </tbody>
     </table>
-    <a class="btn btn-success" style="float: right;">Generate PDF</a>
+    <a class="btn btn-success" style="float: right;"  href=" {{ route('data', ['created_at' => $repDate ]) }} "  >Generate PDF</a>
+    
     </form>
 </div>
 

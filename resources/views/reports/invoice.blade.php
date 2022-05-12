@@ -10,7 +10,6 @@
     <div class="card" id="card">
         <img src="/images/cmulogo.png" alt="CMUlogo" style="float:left;width: 100px; height:100px;">
         <h2 style="position: absolute; left: 380px;">Central Mindanao University</h2>
-        <h3 value="">{{ $repDate }}</h3>
         <table class="table" style="margin: 40px 0;">
             <thead>
                 <th scope="col">ID Number</th>
@@ -20,26 +19,27 @@
                 <th scope="col">Section</th>
             </thead>
             <tbody>
-                @foreach ($reportDate as $report)
+                @foreach ($data as $dat)
                     <tr>
                         <td>
-                            {{ $report->idNumber }}
+                            {{ $dat->idNumber }}
                         </td>
                         <td>
-                            {{ $report->studentName }}
+                            {{ $dat->studentName }}
                         </td>
                         <td>
-                            {{ $report->college }}
+                            {{ $dat->college }}
                         </td>
                         <td>
-                            {{ $report->course }} 
+                            {{ $dat->course }} 
                         </td>
                         <td>
-                            {{ $report->section }}
+                            {{ $dat->section }}
                         </td>
                     </tr>
                 @endforeach
             </tbody>
+            <a class="btn btn-success" style="float: right;" >Generate PDF</a>
         </table>
     </div>
 </body>
