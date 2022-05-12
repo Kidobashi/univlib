@@ -59,12 +59,12 @@ Route::get('/reports', function(){
 
 //Route::get('/invoice', [ReportsController::class, 'invoice'])->name('reportDate');
 Route::get('/reports', [ReportsController::class, 'index']);
-Route::get('/reports', [ReportsController::class, 'getReports'])->name('reportDate');
+Route::get('/reports', [ReportsController::class, 'getReports'])->name('searchDate');
 Route::get('/students', [StudentsController::class, 'index']); 
 Route::get('/verify', [StudentsController::class, 'checkId'])->name('verify'); 
 Route::get('/visitor', [VisitorsController::class, 'storeVisitor'])->name('visitor');
 Route::get('create-pdf', [PDFController::class, 'index'])->name('index');
-Route::get('create-pdf/{created_at}', [PDFController::class, 'createPDF'])->name('data');
+Route::get('create-pdf/{created_at?}', [PDFController::class, 'createPDF'])->name('data');
 //Route::get('create-pdf/reportDate', [ReportsController::class, 'getReports'])->name('reportDate');
 
 //Route::get('/', [ReportsController::class, 'index']);

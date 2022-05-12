@@ -22,8 +22,8 @@ class PDFController extends Controller
         $pdf = PDF::loadView('reports.invoice', ['data'=> $data]);
         //dd($data);
     
-        return $pdf->download('itsolutionstf.pdf');
+        //return $pdf->stream('itsolutionstf.pdf');
 
-        //return view('reports.invoice')->with(['data'=> $data]);
+        return view('reports.invoice')->with(['data'=> $data]);
     }
 }
