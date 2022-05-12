@@ -1,15 +1,15 @@
 @extends('templates.main')
 @section('content')
-<form action="{{ route('reportDate') }}" method="GET">
+<form action="{{ route('searchDate') }}" method="GET">
     <div class="subdate" >
         <h1 style="position: absolute; float: left; padding: 10px;">Visit Reports</h1>
-        <input type="date" name="reportDate" placeholder="Report Date" style="position: relative; left: 915px; margin:20px 0;">
+        <input type="date" name="searchDate" placeholder="Report Date" style="position: relative; left: 915px; margin:20px 0;">
         <button type="submit" class="submit"style="position: relative; left: 918px; margin-right:0px;">Search</button>
     </div>
 <div class="card" id="card">
     <img src="/images/cmulogo.png" alt="CMUlogo" style="float:left;width: 100px; height:100px;">
     <h2 style="position: absolute; left: 380px;">Central Mindanao University</h2>
-    <h3 value="">{{ $repDate }}</h3>
+    <h3 value="">{{ $searchDate }}</h3>
     <table class="table" id='reports' style="margin: 40px 0;">
         <thead>
             <th scope="col">ID Number</th>
@@ -40,7 +40,12 @@
             @endforeach
         </tbody>
     </table>
+<<<<<<< HEAD
     <a class="btn btn-primary" href="{{ URL::to('/reports/pdf') }}">Export to PDF</a>
+=======
+    {{ $reportDate->links() }}
+    <a class="btn btn-success" style="float: right;"  href=" {{ route('data', ['created_at' => $searchDate ])}} "  >Generate PDF</a>
+>>>>>>> 42722de39400997730a3312850a58c52d66afe73
     </form>
 </div>
 

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Students;
 use Illuminate\Http\Request;
 
 class BarcodeController extends Controller
 {
     public function generateBarcode(Request $request){
         $id = $request->get('id');
-        $product = Product::find($id);
-        return view('barcode')->with('product',$product);
+        $student = Students::find($id);
+        return view('barcode')->with('student',$student);
     }
 }

@@ -19,14 +19,18 @@ class ReportsController extends Controller
         if(Gate::denies('logged-in')){
             return view('welcome');
         }
+        
+        $currentDate = date('Y-m-d');
+       
+        $repDate = $currentDate;
 
-        $repDate = $report->input('reportDate');
+        $searchDate = $report->input('searchDate');
 
-        $reportDate = Visits::where('created_at', 'LIKE', "%{$repDate}%")
-            ->get();
+        $reportDate = Visits::where('created_at', 'LIKE', "%{$searchDate}%")
+        ->get();
 
         if(Gate::allows('is-librarian')){
-            return view('reports.reports')->with('reportDate', $reportDate)->with('repDate', $repDate);
+            return view('reports.reports')->with(['reportDate' => Visits::paginate(10)])->with('searchDate' , $searchDate)->with('repDate', $repDate);
         }
     }
 
