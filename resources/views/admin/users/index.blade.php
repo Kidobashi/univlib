@@ -29,11 +29,22 @@
 
                         <button type="button" class="btn btn-sm btn-danger" 
                         onclick="event.preventDefault();
-                        document.getElementById('delete-user-form-{{ $user->id }}').submit()">
-                            Delete
+                        document.getElementById('deactivate-user-form-{{ $user->id }}').submit()" value="{{$user->status}}" disabled>
+                            Deactivate
                         </button>
 
-                        <form id="delete-user-form-{{ $user->id }}" action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display: none">
+                        <button type="button" class="btn btn-sm btn-success" 
+                        onclick="event.preventDefault();
+                        document.getElementById('reactivate-user-form-{{ $user->id }}').submit()" value="{{$user->status}}" disabled>
+                            Reactivate
+                        </button>
+
+                        <form id="reactivate-user-form-{{ $user->id }}" action="{{ route('admin.users.show', $user->id) }}" method="PUT" style="display: none">
+                            @csrf
+                            @method("PUT")
+                        </form>
+
+                        <form id="deactivate-user-form-{{ $user->id }}" action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display: none">
                             @csrf
                             @method("DELETE")
                         </form>
@@ -44,4 +55,15 @@
           </table>
           {{ $users->links() }}
     </div>
+
+    <script>
+        let btnShow = document.querySelector('button');
+        let input = document.querySelector('button').value;
+        //let output = document.getElementById('h1');
+        
+        input.addEventListener('keyup', () => {
+            if(input ==  0) btnShow.disabled = true
+            else btnShow.disabled = false;
+        });
+    </script>
 @endsection

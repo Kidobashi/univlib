@@ -72,9 +72,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         //
+        User::find($id)
+        ->update(['status' => 1]);
+
+        $request->session()->flash('success', 'You have reactivated the user');
+        //dd($deactivate);
+        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -127,10 +133,11 @@ class UserController extends Controller
     public function destroy($id, Request $request)
     {
         //
-        User::destroy($id);
+        User::find($id)
+        ->update(['status' => 0]);
 
-        $request->session()->flash('success', 'You have deleted the user');
-
+        $request->session()->flash('success', 'You have deactivated the user');
+        //dd($deactivate);
         return redirect(route('admin.users.index'));
     }
 }

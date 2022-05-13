@@ -64,14 +64,10 @@ Route::get('/reports', [ReportsController::class, 'getReports'])->name('searchDa
 Route::get('/students', [StudentsController::class, 'index']); 
 Route::get('/verify', [StudentsController::class, 'checkId'])->name('verify'); 
 Route::get('/visitor', [VisitorsController::class, 'storeVisitor'])->name('visitor');
-<<<<<<< HEAD
-Route::get('/', [VisitorsController::class, 'index']);  
-
-=======
 Route::get('create-pdf', [PDFController::class, 'index'])->name('index');
 Route::get('create-pdf/{created_at?}', [PDFController::class, 'createPDF'])->name('data');
+
 //Route::get('create-pdf/reportDate', [ReportsController::class, 'getReports'])->name('reportDate');
->>>>>>> 42722de39400997730a3312850a58c52d66afe73
 
 //Route::get('/', [ReportsController::class, 'index']);
 //Route::get('/', [StudentsController::class, 'checkId'])->name('data'); 

@@ -40,12 +40,8 @@
             @endforeach
         </tbody>
     </table>
-<<<<<<< HEAD
-    <a class="btn btn-primary" href="{{ URL::to('/reports/pdf') }}">Export to PDF</a>
-=======
     {{ $reportDate->links() }}
     <a class="btn btn-success" style="float: right;"  href=" {{ route('data', ['created_at' => $searchDate ])}} "  >Generate PDF</a>
->>>>>>> 42722de39400997730a3312850a58c52d66afe73
     </form>
 </div>
 

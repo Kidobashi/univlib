@@ -8,47 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-<<<<<<< HEAD
-    <div class="card" id="card">
-        <img src="/images/cmulogo.png" alt="CMUlogo" style="float:left;width: 100px; height:100px;">
-        <h2 style="position: absolute; left: 380px;">Central Mindanao University</h2>
-        <table class="table" style="margin: 40px 0;">
-            <thead>
-                <th scope="col">ID Number</th>
-                <th scope="col">Name</th>
-                <th scope="col">College</th>
-                <th scope="col">Course</th>
-                <th scope="col">Section</th>
-            </thead>
-            <tbody>
-                @foreach ($reportDate as $report)
-                    <tr>
-                        <td>
-                            {{ $report->idNumber }}
-                        </td>
-                        <td>
-                            {{ $report->studentName }}
-                        </td>
-                        <td>
-                            {{ $report->college }}
-                        </td>
-                        <td>
-                            {{ $report->course }} 
-                        </td>
-                        <td>
-                            {{ $report->section }}
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-=======
     <div class="container">
         <div class="card">
                 <div class="card" id="card">
                     <img src="/images/cmulogo.png" alt="CMUlogo" style="position:relative; float:left; left:-40px; top:-65px; width: 100px; height:100px;">
                     <h2 style="position: absolute; left: 520px; top: 80px;">Central Mindanao University</h2>
-            
                     <table class="table" style="margin: 40px 0;">
                         <thead>
                             <th scope="col">ID Number</th>
@@ -86,7 +50,6 @@
                 </form>
              </div>
         </div>
->>>>>>> 42722de39400997730a3312850a58c52d66afe73
     </div>
 </body>
 </html>

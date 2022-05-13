@@ -65,6 +65,11 @@
                             </div>
                         </div>
                     </form>
+                    @if (session('error'))
+                        <div class="alert alert-danger" style="top: 25px;">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
