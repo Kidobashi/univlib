@@ -10,6 +10,7 @@
 
     <div class="card">
         <table class="table">
+            <a href="">Show Librarian</a>
             <thead>
               <tr>
                 <th scope="col">Id</th>
@@ -29,13 +30,13 @@
 
                         <button type="button" class="btn btn-sm btn-danger" 
                         onclick="event.preventDefault();
-                        document.getElementById('deactivate-user-form-{{ $user->id }}').submit()" value="{{$user->status}}" disabled>
+                        document.getElementById('deactivate-user-form-{{ $user->id }}').submit()" value="{{$user->status}}" >
                             Deactivate
                         </button>
 
                         <button type="button" class="btn btn-sm btn-success" 
                         onclick="event.preventDefault();
-                        document.getElementById('reactivate-user-form-{{ $user->id }}').submit()" value="{{$user->status}}" disabled>
+                        document.getElementById('reactivate-user-form-{{ $user->id }}').submit()" value="{{$user->status}}" >
                             Reactivate
                         </button>
 

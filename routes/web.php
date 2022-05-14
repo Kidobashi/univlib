@@ -6,6 +6,8 @@ use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\VisitorsController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\PDFController;
+use Illuminate\Support\Facades\Log;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,6 +69,9 @@ Route::get('/visitor', [VisitorsController::class, 'storeVisitor'])->name('visit
 Route::get('create-pdf', [PDFController::class, 'index'])->name('index');
 Route::get('create-pdf/{created_at?}', [PDFController::class, 'createPDF'])->name('data');
 
+Route::get('showLibrarian', [UserController::class, 'librarianCategory'])->name('category');
+Route::get('showLibrarian', [UserController::class, 'showLibrarian'])->name('roles');
+Route::get('librarianCategory/{id?}', [UserController::class, 'librarianCategory']);
 //Route::get('create-pdf/reportDate', [ReportsController::class, 'getReports'])->name('reportDate');
 
 //Route::get('/', [ReportsController::class, 'index']);

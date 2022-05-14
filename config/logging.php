@@ -1,5 +1,6 @@
 <?php
 
+use App\Logging\ActionLogsFormatter;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
@@ -114,6 +115,13 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'actions' => [
+            'driver' => 'single',
+            'tap' => [ActionLogsFormatter::class],
+            'path' => storage_path('logs/actions.log'),
+            'level' => 'info'
+        ]
     ],
 
 ];
