@@ -10,7 +10,7 @@ use App\Models\Logs;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Roles;
-use App\Models\RolesUsers;
+use App\Models\RolesUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
@@ -173,7 +173,7 @@ class UserController extends Controller
 
     public function showLibrarian(Request $request)
     {
-        $roles = RolesUsers::query()
+        $roles = DB::table('roles_user')
         ->join('users', 'user_id', '=', 'users.id')
         ->select('name', 'user_id', 'users.status')
         ->where('roles_id', 2)

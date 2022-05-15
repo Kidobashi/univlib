@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RolesUsers extends Model
+class RolesUser extends Model
 {
     use HasFactory;
 
