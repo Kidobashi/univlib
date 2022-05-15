@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Models\LibrarianUsers;
 use App\Models\Logs;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Roles;
+use App\Models\RolesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
@@ -171,24 +173,30 @@ class UserController extends Controller
 
     public function showLibrarian(Request $request)
     {
-        $roles = DB::table('roles_user')
+        $roles = RolesUsers::query()
         ->join('users', 'user_id', '=', 'users.id')
-        ->select('name', 'roles_user.user_id', 'users.status')
+        ->select('name', 'user_id', 'users.status')
         ->where('roles_id', 2)
         ->get();
 
-        DB::table('librarian_users')->create([
-            'user_id' => $roles->user_id,
-            'category_id' => request('category')
-        ]);
+        $category = DB::table('librarian_cat')
+        ->select('id', 'category')
+        ->get();
+        //$temp = $roles->user_id;
 
-        dd($roles);
-        //return view('admin.showLibrarian.index')->with(['roles' => $roles])->with('category', $category);
+        // LibrarianUsers::insert([
+         // 'user_id' => $roles->user_id,
+        //    'category_id' => 1
+        //]);
+
+        //dd($roles);
+        //dd($temp);
+        return view('admin.showLibrarian.index', ['category' => $category])->with(['roles' => $roles]);
     }
 
     public function librarianCategory(){
         $category = DB::table('librarian_cat')
-        ->select('id')
+        ->select('id', 'category')
         ->get();
 
         DB::table('librarian_users')->insert([
@@ -196,6 +204,7 @@ class UserController extends Controller
             'category_id' => 3
         ]);
 
-        return view('admin.showLibrarian.index')->with(['category', $category]);
+        //dd($category);
+        //return view('admin.showLibrarian.index', ['category' => $category]);
     }
 }

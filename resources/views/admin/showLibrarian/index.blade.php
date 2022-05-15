@@ -18,16 +18,16 @@
             @foreach ($roles as $role)
             <tr>
                 <th scope="row">{{ $role->name}}</th>
-            @endforeach
                 <th>
                     <select name="category" id="category">
-                        <option value="old(category)" selected disabled>Select Category
+                        <option value="old(category)" for="category" selected disabled>Select Category
                             @foreach($category as $cat)
                            <option value="{{ $cat->id }}">{{ $cat->category }}</option>
                         </option>
+                        @endforeach
                     </select>
-                            @endforeach
                 </th>
+            @endforeach
             </tr>
         </tbody>
             </table>
