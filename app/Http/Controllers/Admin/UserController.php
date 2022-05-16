@@ -51,7 +51,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
     public function store(StoreUserRequest $request)
     {
         /**$validatedData = $request->validate(
@@ -63,7 +63,7 @@ class UserController extends Controller
         ); */
         $newUser = new CreateNewUser();
         $user = $newUser->create($request->all());
- 
+
         $user->roles()->sync($request->roles);
         $request->session()->flash('success', 'User '. $user->name.' is added to the list');
 
@@ -84,6 +84,8 @@ class UserController extends Controller
     public function show($id, Request $request)
     {
         //
+
+
         $user = User::find($id);
         $user->status = 1;
         $user->save();
@@ -134,7 +136,7 @@ class UserController extends Controller
         }
 
         $user->update($request->except(['_token', 'roles']));
-        
+
         $user->roles()->sync($request->roles);
         $request->session()->flash('success', 'You have edited the user');
 
@@ -171,9 +173,9 @@ class UserController extends Controller
         return redirect(route('admin.users.index'));
     }
 
-    public function showLibrarian(Request $request)
+    public function showLibrarian($id,Request $request)
     {
-        $roles = DB::table('roles_user')
+        $roles = RolesUser::query()
         ->join('users', 'user_id', '=', 'users.id')
         ->select('name', 'user_id', 'users.status')
         ->where('roles_id', 2)
@@ -182,10 +184,10 @@ class UserController extends Controller
         $category = DB::table('librarian_cat')
         ->select('id', 'category')
         ->get();
-        
+
         LibrarianUsers::insert([
-            'user_id' => 2,
-            'category_id' => $request->id,    
+            'user_id' => $id,
+            'category_id' => $category->id,
         ]);
         //$temp = $roles->user_id;
 
@@ -193,10 +195,12 @@ class UserController extends Controller
          // 'user_id' => $roles->user_id,
         //    'category_id' => 1
         //]);
-        //dd($request->id);
+        //dd($request->user_id);
         //dd($roles);
         //dd($temp);
-        return view('modal.librarianlistmdl', ['category' => $category])->with(['roles' => $roles]);
+
+        return view('modal.librarianlistmdl', compact('category'))->with(compact('roles'));
+        //return view('admin.users.index', ['category' => $category])->with(['roles' => $roles]);
     }
 
     public function librarianCategory($id, $category){

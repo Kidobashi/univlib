@@ -45,7 +45,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-     
+
     /**public function setPasswordAttribute($password){
         $this->attributes['password'] = Hash::make($password);
     }*/
@@ -54,7 +54,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Roles');
     }
 
-    //Check if user has a role 
+    //Check if user has a role
     public function hasAnyRole(string $role){
         return null !== $this->roles()->where('name',$role)->first();
     }
@@ -62,5 +62,15 @@ class User extends Authenticatable
     //Check if user has any role which is an array
     public function hasAnyRoles(array $role){
       return null !== $this->roles()->whereIn('name',$role)->first();
+    }
+
+    public function checkIn() {
+        return $this->hasMany('App\Models\RolesUser');
+    }
+
+    public function checkedRoles() { //True if checked in today
+        return $this->hasMany('App\Models\RolesUser')
+              ->where("roles_id","=",2)
+              ->count() > 0;
     }
 }

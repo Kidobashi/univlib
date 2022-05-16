@@ -63,19 +63,20 @@ Route::get('/reports', function(){
 Route::get('/reports/pdf', [StudentsController::class, 'downloadPDF']);
 Route::get('/reports', [ReportsController::class, 'index']);
 Route::get('/reports', [ReportsController::class, 'getReports'])->name('searchDate');
-Route::get('/students', [StudentsController::class, 'index']); 
-Route::get('/verify', [StudentsController::class, 'checkId'])->name('verify'); 
+Route::get('/students', [StudentsController::class, 'index']);
+Route::get('/verify', [StudentsController::class, 'checkId'])->name('verify');
 Route::get('/visitor', [VisitorsController::class, 'storeVisitor'])->name('visitor');
 Route::get('create-pdf', [PDFController::class, 'index'])->name('index');
 Route::get('create-pdf/{created_at?}', [PDFController::class, 'createPDF'])->name('data');
 
-Route::get('showLibrarian', [UserController::class, 'librarianCategory'])->name('category');
-Route::get('showLibrarian', [UserController::class, 'showLibrarian'])->name('roles');
+Route::get('showLibrarian/{id}', [UserController::class, 'librarianCategory'])->name('category');
+Route::get('showLibrarian/{id}', [UserController::class, 'showLibrarian'])->name('roles');
 Route::get('librarianCategory/{id?}', [UserController::class, 'librarianCategory']);
 //Route::get('create-pdf/reportDate', [ReportsController::class, 'getReports'])->name('reportDate');
 
+
 //Route::get('/', [ReportsController::class, 'index']);
-//Route::get('/', [StudentsController::class, 'checkId'])->name('data'); 
+//Route::get('/', [StudentsController::class, 'checkId'])->name('data');
 
 
 //Auth::routes();
