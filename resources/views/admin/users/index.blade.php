@@ -10,7 +10,7 @@
 
     <div class="card">
         <table class="table">
-            <a href="">Show Librarian</a>
+            <a href="{{ url('showLibrarian') }}">Show Librarian</a>
             <thead>
               <tr>
                 <th scope="col">Id</th>

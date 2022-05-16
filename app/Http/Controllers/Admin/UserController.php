@@ -182,19 +182,24 @@ class UserController extends Controller
         $category = DB::table('librarian_cat')
         ->select('id', 'category')
         ->get();
+        
+        LibrarianUsers::insert([
+            'user_id' => 2,
+            'category_id' => $request->id,    
+        ]);
         //$temp = $roles->user_id;
 
         // LibrarianUsers::insert([
          // 'user_id' => $roles->user_id,
         //    'category_id' => 1
         //]);
-
+        //dd($request->id);
         //dd($roles);
         //dd($temp);
-        return view('admin.showLibrarian.index', ['category' => $category])->with(['roles' => $roles]);
+        return view('modal.librarianlistmdl', ['category' => $category])->with(['roles' => $roles]);
     }
 
-    public function librarianCategory(){
+    public function librarianCategory($id, $category){
         $category = DB::table('librarian_cat')
         ->select('id', 'category')
         ->get();

@@ -30,7 +30,7 @@
             @endforeach
             </tr>
         </tbody>
-            </table>
+    </table>
         <h1>Hi</h1>
     </body>
 </html>
