@@ -69,6 +69,7 @@ Route::get('/visitor', [VisitorsController::class, 'storeVisitor'])->name('visit
 Route::get('create-pdf', [PDFController::class, 'index'])->name('index');
 Route::get('create-pdf/{created_at?}', [PDFController::class, 'createPDF'])->name('data');
 
+Route::post('assignLibrarian', [UserController::class, 'asssignLibrarian'])->name('asssign');
 Route::get('showLibrarian/{id}', [UserController::class, 'librarianCategory'])->name('category');
 Route::get('showLibrarian/{id}', [UserController::class, 'showLibrarian'])->name('roles');
 Route::get('librarianCategory/{id?}', [UserController::class, 'librarianCategory']);
