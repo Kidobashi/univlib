@@ -139,6 +139,11 @@ class UserController extends Controller
         $user->roles()->sync($request->roles);
         $request->session()->flash('succcess', 'You have edited the user');
 
+        LibrarianUsers::create([
+            'user_id' => $id,
+            'category' => request('category')
+        ]);
+
         Logs::create([
             'user_id' => $id,
             'actor' => Auth::user()->name,
@@ -175,19 +180,11 @@ class UserController extends Controller
 
     public function showLibrarian($id,Request $request)
     {
-        $roles = RolesUser::query()
-        ->join('users', 'user_id', '=', 'users.id')
-        ->select('name', 'user_id', 'users.status')
-        ->where('roles_id', 2)
-        ->get();
-
-        $category = DB::table('librarian_cat')
-        ->select('id', 'category')
-        ->get();
+        $user = User::find($id);
 
         LibrarianUsers::insert([
             'user_id' => $id,
-            'category_id' => $category->id,
+            'category_id' => $request->category,
         ]);
         //$temp = $roles->user_id;
 
@@ -199,7 +196,7 @@ class UserController extends Controller
         //dd($roles);
         //dd($temp);
 
-        return view('admin.users.index', compact('category'))->with(compact('roles'));
+        return view('admin.users.index');
         //return view('admin.users.index', ['category' => $category])->with(['roles' => $roles]);
     }
 

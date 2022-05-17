@@ -28,13 +28,14 @@
                     <td>{{ $user->email}}</td>
                     <td>
                         <a class="btn btn-sm btn-primary" href={{ route('admin.users.edit', $user->id) }} role="button">Edit</a>
+                        
 
                         @if($user->status == 1)
-                        <button type="button" class="btn btn-sm btn-danger"
+                        <a href="{{ route('register') }}"><button type="button" class="btn btn-sm btn-danger"
                         onclick="event.preventDefault();
                         document.getElementById('deactivate-user-form-{{ $user->id }}').submit()" value="{{$user->status}}" >
                             Deactivate
-                        </button>
+                        </button></a>
                         @else
                         <button type="button" class="btn btn-sm btn-success"
                         onclick="event.preventDefault();
