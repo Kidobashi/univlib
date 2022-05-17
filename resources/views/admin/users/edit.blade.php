@@ -10,7 +10,7 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.users.update', $user->id) }}">
-                        @method('PATCH')
+                        @method('PUT')
                         @include('admin.users.includes.form')
                     </form>
                 </div>

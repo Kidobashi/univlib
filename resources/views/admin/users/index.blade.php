@@ -10,9 +10,6 @@
 
     <div class="card">
         <table class="table">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Show Librarian
-              </button>
             {{-- <a href="{{ url('showLibrarian') }}">Show Librarian</a> --}}
             <thead>
               <tr>
@@ -20,6 +17,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Actions</th>
+                <th scope="col">Role</th>
               </tr>
             </thead>
             <tbody>
@@ -31,36 +29,19 @@
                     <td>
                         <a class="btn btn-sm btn-primary" href={{ route('admin.users.edit', $user->id) }} role="button">Edit</a>
 
+                        @if($user->status == 1)
                         <button type="button" class="btn btn-sm btn-danger"
                         onclick="event.preventDefault();
                         document.getElementById('deactivate-user-form-{{ $user->id }}').submit()" value="{{$user->status}}" >
                             Deactivate
                         </button>
-
+                        @else
                         <button type="button" class="btn btn-sm btn-success"
                         onclick="event.preventDefault();
                         document.getElementById('reactivate-user-form-{{ $user->id }}').submit()" value="{{$user->status}}" >
                             Reactivate
                         </button>
-
-                        <?php
-                            $roles = DB::table('roles_user')
-                            ->join('users', 'user_id', '=', 'users.id')
-                            ->select('name', 'user_id', 'users.status')
-                            ->where('roles_id', 2)
-                            ->get();
-
-                            $iden = DB::table('users')
-                            ->join('roles_user', 'user_id', '=', 'users.id')
-                            ->select('roles_id', 'name')
-                            ->where('roles_id', 2)
-                            ->get();
-
-
-                            $category = DB::table('librarian_cat')
-                            ->select('id', 'category')
-                            ->get();
-                        ?>
+                        @endif
 
                         <form id="reactivate-user-form-{{ $user->id }}" action="{{ route('admin.users.show', $user->id) }}" method="PUT" style="display: none">
                             @csrf
@@ -77,11 +58,52 @@
                             @method("PUT")
                         </form>
                     </td>
+
+                    <td> 
+                
+                        <!-- {{ implode('|', $user->roles()->get()->pluck('name')->toArray()) }} -->
+                        @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Librarian" )
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+                            Show Librarian
+                        </button>
+                        @endif
+                        @if(implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Admin")
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" >
+                            Administrator       
+                        </button>
+                        @endif
+                        @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "User" )
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" disabled >
+                            User
+                        </button>
+                        @endif
+                        
+                        @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Admin|Librarian")
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+                            Show Librarian
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" disabled>
+                            Administrator
+                        </button>
+                        @endif
+                    </td>
+                    @endforeach
+                    
                   </tr>
-                @endforeach
             </tbody>
           </table>
 
+        <?php
+            $roles = DB::table('roles_user')
+            ->join('users', 'user_id', '=', 'users.id')
+            ->select('name', 'user_id', 'users.status')
+            ->where('roles_id', 2)
+            ->get();
+
+            $category = DB::table('librarian_cat')
+            ->select('id', 'category')
+            ->get();
+        ?>
           <form action="/showLibrarian" method="POST">
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

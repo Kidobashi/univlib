@@ -24,13 +24,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::query('users.id', 'name', 'email')
+        ->join('roles_user', 'user_id', '=', 'users.id')->paginate(10);
+        
         if(Gate::denies('logged-in')){
             return view('welcome');
         }
 
         if(Gate::allows('is-admin')){
-          return view('admin.users.index')->with(['users' => User::paginate(10)]);
+          return view('admin.users.index')->with(['users' => $user]);
         }
 
     }
@@ -84,8 +86,6 @@ class UserController extends Controller
     public function show($id, Request $request)
     {
         //
-
-
         $user = User::find($id);
         $user->status = 1;
         $user->save();
@@ -127,10 +127,9 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
-
         $user = User::find($id);
 
-        if(!$user){
+        if(!$id){
             $request->session()->flash('error', 'Error. User does not exist');
             return redirect(route('admin.users.index'));
         }
@@ -138,10 +137,10 @@ class UserController extends Controller
         $user->update($request->except(['_token', 'roles']));
 
         $user->roles()->sync($request->roles);
-        $request->session()->flash('success', 'You have edited the user');
+        $request->session()->flash('succcess', 'You have edited the user');
 
         Logs::create([
-            'user_id' => $user->id,
+            'user_id' => $id,
             'actor' => Auth::user()->name,
             'action' => "edit",
         ]);
@@ -158,8 +157,9 @@ class UserController extends Controller
     public function destroy($id, Request $request)
     {
         //
-        User::find($id)
-        ->update(['status' => 0]);
+        $user = User::find($id);
+        $user->status = 0;
+        $user->save();
 
         $request->session()->flash('success', 'You have deactivated the user');
         //dd($deactivate);
@@ -199,7 +199,7 @@ class UserController extends Controller
         //dd($roles);
         //dd($temp);
 
-        return view('modal.librarianlistmdl', compact('category'))->with(compact('roles'));
+        return view('admin.users.index', compact('category'))->with(compact('roles'));
         //return view('admin.users.index', ['category' => $category])->with(['roles' => $roles]);
     }
 
