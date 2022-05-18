@@ -26,7 +26,7 @@ class UserController extends Controller
     {
         $user = User::query('users.id', 'name', 'email')
         ->join('roles_user', 'user_id', '=', 'users.id')->paginate(10);
-        
+
         if(Gate::denies('logged-in')){
             return view('welcome');
         }
@@ -198,7 +198,7 @@ class UserController extends Controller
 
         return view('admin.users.index');
         //return view('admin.users.index', ['category' => $category])->with(['roles' => $roles]);
-    }
+                                                                                                                                                                                                                                                                                                                                                                                                                }
 
     public function librarianCategory($id, $category){
         $category = DB::table('librarian_cat')
@@ -222,6 +222,11 @@ class UserController extends Controller
             $request->session()->flash('error', 'Librarian is already assigned');
         }
         else{
+            $request->validate([
+                'id' => 'required',
+                'category' => 'required',
+            ]);
+
             LibrarianUsers::insert([
                 'user_id' => $request->id,
                 'category_id' => $request->category,

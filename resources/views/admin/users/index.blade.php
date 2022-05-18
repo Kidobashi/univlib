@@ -58,8 +58,8 @@
                         </form>
                     </td>
 
-                    <td> 
-                
+                    <td>
+
                         <!-- {{ implode('|', $user->roles()->get()->pluck('name')->toArray()) }} -->
                         @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Librarian" )
                         <button onclick="sendData('{{$user->id}}', '{{$user->name}}')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
@@ -68,7 +68,7 @@
                         @endif
                         @if(implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Admin")
                         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" >
-                            Administrator       
+                            Administrator
                         </button>
                         @endif
                         @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "User" )
@@ -76,7 +76,7 @@
                             User
                         </button>
                         @endif
-                        
+
                         @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Admin|Librarian")
                         <button onclick="sendData('{{$user->id}}', '{{$user->name}}')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
                             Librarian
@@ -87,7 +87,7 @@
                         @endif
                     </td>
                     @endforeach
-        
+
                   </tr>
             </tbody>
           </table>
@@ -117,7 +117,7 @@
                 <div class="modal-body">
 
                 <form action="{{ url('assignLibrarian') }}" method="POST">
-                @csrf 
+                @csrf
                         <input style="display:none;"id="modal-id" type="text" name="id" value="">
                         <select name="category">
                             @foreach($category as $cat)
