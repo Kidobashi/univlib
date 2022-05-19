@@ -24,15 +24,21 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::query('users.id', 'name', 'email')
-        ->join('roles_user', 'user_id', '=', 'users.id')->paginate(10);
+        $assign = User::query('category_id')
+        ->join('librarian_users', 'librarian_users.user_id', '=', 'users.id')->paginate(10);
+
+        $users = User::query('users.id', 'name', 'email')
+        ->join('roles_user', 'user_id', '=', 'users.id')
+        ->paginate(10);
+
+        //$users = array_merge(['data' => $data], ['assign' => $assign]);
 
         if(Gate::denies('logged-in')){
             return view('welcome');
         }
 
         if(Gate::allows('is-admin')){
-          return view('admin.users.index')->with(['users' => $user]);
+          return view('admin.users.index', ['users' => $users])->with(['assign' => $assign]);
         }
 
     }

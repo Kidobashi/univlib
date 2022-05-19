@@ -7,7 +7,7 @@
             <a class="btn btn-sm btn-success float-end" href="{{ route('admin.users.create') }}" role="button">Create</a>
         </div>
     </div>
-
+s
     <div class="card">
         <table class="table">
             <thead>
@@ -17,14 +17,15 @@
                 <th scope="col">Email</th>
                 <th scope="col">Actions</th>
                 <th scope="col">Role</th>
+                <th scope="col">Assignment</th>
               </tr>
             </thead>
             <tbody>
                 @foreach ($users as $user)
                 <tr>
                     <th scope="row">{{ $user->id}}</th>
-                    <td>{{ $user->name}}</td>
-                    <td>{{ $user->email}}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
                     <td>
                         <a class="btn btn-sm btn-primary" href={{ route('admin.users.edit', $user->id) }} role="button">Edit</a>
 
@@ -59,7 +60,6 @@
                     </td>
 
                     <td>
-
                         <!-- {{ implode('|', $user->roles()->get()->pluck('name')->toArray()) }} -->
                         @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Librarian" )
                         <button onclick="sendData('{{$user->id}}', '{{$user->name}}')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
@@ -87,11 +87,10 @@
                         @endif
                     </td>
                     @endforeach
-
                   </tr>
             </tbody>
           </table>
-          {{ $users->links() }}
+          {{ $users->render() }}
 
         <?php
             $roles = DB::table('roles_user')
