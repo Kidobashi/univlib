@@ -1,9 +1,18 @@
-@extends('templates.main')
+@extends('layouts.app')
 
 @section('content')
-
-<div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-
-</div>
-
+    <div class="header py-7 py-lg-8">
+        <div class="container">
+            <div class="header-body text-center mb-7">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5 col-md-6">
+                        <h1 class="text-white">{{ __('Welcome!') }}</h1>
+                        <p class="text-lead text-light">
+                            {{ __('Use Black Dashboard theme to create a great project.') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
