@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\VisitorsController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\SummaryController;
 use Illuminate\Support\Facades\Log;
 
 /*
@@ -74,6 +75,9 @@ Route::post('assignLibrarian/', [UserController::class, 'asssignLibrarian'])->mi
 Route::get('showLibrarian/{id}', [UserController::class, 'librarianCategory'])->name('category');
 Route::get('showLibrarian/{id}', [UserController::class, 'showLibrarian'])->name('roles');
 Route::get('librarianCategory/{id?}', [UserController::class, 'librarianCategory']);
+
+//Summary
+Route::get('dashboard', [SummaryController::class, 'dailyVisits']);
 //Route::get('create-pdf/reportDate', [ReportsController::class, 'getReports'])->name('reportDate');
 
 
@@ -84,9 +88,9 @@ Route::get('librarianCategory/{id?}', [UserController::class, 'librarianCategory
 //Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
+//Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);

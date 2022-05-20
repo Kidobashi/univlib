@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Gate;
+use App\Models\User;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +24,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $users = User::all();
+
+        if(Gate::denies('logged-in')){
+            return view('welcome');
+        }
+
+        if(Gate::allows('is-admin')){
+          return view('welcome', ['users' => $users]);
+        }
+
+        if(Gate::allows('is-librarian')){
+            return view('dashboard');
+          }
     }
 }

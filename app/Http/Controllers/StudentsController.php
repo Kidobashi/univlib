@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Students;
 use App\Models\Visits;
 use Barryvdh\DomPDF\PDF as DomPDFPDF;
-use PDF;    
+use PDF;
 
 class StudentsController extends Controller
 {
@@ -43,16 +43,13 @@ class StudentsController extends Controller
                 ]);
                 return redirect("/student")->withSuccess( $data->name.' You are verified, Welcome!');
             }
-        
-
         //return dd($data);
-
     }
 
     public function downloadPDF(){
         $visits = Visits::all();
         $pdf = PDF::loadView('reports.reports', compact('visits'));
-        return $pdf->download('visits.pdf');    
+        return $pdf->download('visits.pdf');
     }
 
     function createPDF(){
@@ -71,10 +68,10 @@ class StudentsController extends Controller
             'id_number' => $data->id_number,
             'course' => $data->deg_program,
             'studentName' =>$data->name,
-            'date' => $data->created_at, 
+            'date' => $data->created_at,
         ]);
     //return dd($data);
-    //return redirect()->back() ->with('Success!','You may now Enter'); 
+    //return redirect()->back() ->with('Success!','You may now Enter');
     }
 }
-    
+

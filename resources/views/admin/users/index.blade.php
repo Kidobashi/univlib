@@ -90,7 +90,7 @@ s
                   </tr>
             </tbody>
           </table>
-          {{ $users->render() }}
+          {{ $users->links() }}
 
         <?php
             $roles = DB::table('roles_user')
