@@ -1,9 +1,5 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
-        <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ __('BD') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ __('Black Dashboard') }}</a>
-        </div>
         <ul class="nav">
             <li @if ($pageSlug == 'dashboard') class="active " @endif>
                 <a href="{{ route('home') }}">
@@ -14,7 +10,7 @@
             <li>
             <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                 <i class="fab fa-laravel" ></i>
-                <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
+                <span class="nav-link-text" >{{ __('Librarian Tools') }}</span>
                 <b class="caret mt-1"></b>
             </a>
                 <div class="collapse show" id="laravel-examples">

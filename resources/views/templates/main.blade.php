@@ -19,6 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="/css/dash.css" rel="stylesheet">
+    <link href="{{ asset('black') }}/css/nucleo-icons.css" rel="stylesheet" />
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
@@ -27,11 +29,11 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-        
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            
+
             <div class="form-inline my-2 my-lg-0">
-        
+
             </div>
             </div>
 
@@ -56,6 +58,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/profile"
+                            </a>Profile
                             <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
@@ -78,22 +82,25 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+            @can('is-admin')
                 <li class="nav-item active">
-                    <a class="nav-link" href="/home">Home <span class="sr-only"></span></a>
+                <a class="nav-link" href="/home">Home <span class="sr-only"></span></a>
                 </li>
-            @can('is-admin')   
                 <li class="nav-item">
                     <a class="nav-link" href={{route('admin.users.index')}}>Users Management</a>
                 </li>
             @endcan
-            @can('is-librarian')   
+            @can('is-librarian')
+                <li class="nav-item active">
+                    <a class="nav-link" href="/dashboard">Home <span class="sr-only"></span></a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/reports">Reports</a>
                 </li>
             @endcan
             </ul>
             <div class="form-inline my-2 my-lg-0">
-        
+
             </div>
             </div>
             </nav>

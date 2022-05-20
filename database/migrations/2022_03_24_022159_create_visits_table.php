@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("college")->nullable();
             $table->string("course")->nullable();
             $table->string("section")->nullable();
+            $table->string("library")->nullable();
             $table->timestamps();
         });
     }

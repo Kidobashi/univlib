@@ -15,8 +15,21 @@
         <div class="mb-3">
             <input type="text" class="form-control" name="verify" placeholder="Enter your name" required>
         </div>
+        @can('is-librarian')
+            <?php
+                $user = DB::table('users')->find(auth()->user()->id);
+
+                $assignment = DB::table('librarian_users')->select('category_id')
+                ->where('user_id', '=', auth()->user()->id)->first();
+
+                $rrAssignment = DB::table('librarian_cat')->select('category')
+                ->where('id', '=', $assignment->category_id)->first();
+                //dd($role);
+                ?>
+        @endcan
         <p>Click the button on which section of the CMU Main Library you wish to go.</p>
         <div class="glass-toolbar">
+            <input type="text" name="library" value="{{ $rrAssignment->category }}" required>
         <select name="section" id=""> Select section...
           <option class="glass-button" value="Filipiniana">Filipiniana</option>
           <option class="glass-button" value="E-Library">E-Library</option>
@@ -28,7 +41,7 @@
         </div>
         <button type="submit" class="submit">Submit</button>
         @if(Session::has('success'))
-        <div class="alert alert-success">   
+        <div class="alert alert-success">
            <h3 style="color: gold;">{{Session::get('success')}}</h3>
         </div>
         @endif

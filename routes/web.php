@@ -77,7 +77,7 @@ Route::get('showLibrarian/{id}', [UserController::class, 'showLibrarian'])->name
 Route::get('librarianCategory/{id?}', [UserController::class, 'librarianCategory']);
 
 //Summary
-Route::get('dashboard', [SummaryController::class, 'dailyVisits']);
+Route::get('dashboard', [SummaryController::class, 'dailyVisits'])->name('visits');
 //Route::get('create-pdf/reportDate', [ReportsController::class, 'getReports'])->name('reportDate');
 
 
@@ -86,7 +86,6 @@ Route::get('dashboard', [SummaryController::class, 'dailyVisits']);
 
 
 //Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();
 
@@ -107,5 +106,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+    Route::get('/students', [StudentsController::class, 'index']);
 });
 

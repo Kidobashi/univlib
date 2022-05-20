@@ -31,7 +31,7 @@
                         {{ $report->college }}
                     </td>
                     <td>
-                        {{ $report->course }} 
+                        {{ $report->course }}
                     </td>
                     <td>
                         {{ $report->section }}

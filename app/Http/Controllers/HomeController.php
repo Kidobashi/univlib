@@ -26,15 +26,13 @@ class HomeController extends Controller
     {
         $users = User::all();
 
-        if(Gate::denies('logged-in')){
+        if(Gate::allows('logged-in')){
             return view('welcome');
         }
-
         if(Gate::allows('is-admin')){
           return view('welcome', ['users' => $users]);
         }
-
-        if(Gate::allows('is-librarian')){
+        elseif(Gate::allows('is-librarian')){
             return view('dashboard');
           }
     }

@@ -24,22 +24,24 @@ class StudentsController extends Controller
             ->first();
 
         if($data === null){
-            Visits::create([
+            Visits::insert([
                 'idNumber' => 'visitor',
                 'studentName' => $verify,
                 'college' => ' ',
                 'course' => ' ',
                 'section' => request('section'),
+                'library' => request('library'),
             ]);
             return redirect("/student")->withSuccess( $verify.' You are verified, Welcome!');
         }
             else{
-                Visits::create([
+                Visits::insert([
                     'idNumber' => $verify,
                     'studentName' => $data->name,
                     'college' => $data->student_college,
                     'course' => $data->deg_program,
                     'section' => request('section'),
+                    'library' => request('library'),
                 ]);
                 return redirect("/student")->withSuccess( $data->name.' You are verified, Welcome!');
             }

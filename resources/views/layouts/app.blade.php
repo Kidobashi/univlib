@@ -18,7 +18,7 @@
         <link href="{{ asset('black') }}/css/nucleo-icons.css" rel="stylesheet" />
         <!-- CSS -->
         <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-        <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
+        {{-- <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" /> --}}
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -27,7 +27,7 @@
                 <div class="main-panel">
                     @include('layouts.navbars.navbar')
 
-                    <div class="content">
+                    <div class="content" style="background-color: rgb(240, 233, 233);">
                         @yield('content')
                     </div>
 
@@ -139,27 +139,6 @@
                         setTimeout(function() {
                             clearInterval(simulateWindowResize);
                         }, 1000);
-                    });
-
-                    $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
-                            var $btn = $(this);
-
-                            if (white_color == true) {
-                                $('body').addClass('change-background');
-                                setTimeout(function() {
-                                    $('body').removeClass('change-background');
-                                    $('body').removeClass('white-content');
-                                }, 900);
-                                white_color = false;
-                            } else {
-                                $('body').addClass('change-background');
-                                setTimeout(function() {
-                                    $('body').removeClass('change-background');
-                                    $('body').addClass('white-content');
-                                }, 900);
-
-                                white_color = true;
-                            }
                     });
                 });
             });
