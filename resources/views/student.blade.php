@@ -36,11 +36,14 @@
         @endif
         <form action="{{ route('verify') }}" method="GET">
         <div class="mb-3">
+        @If($rrAssignment->category != 'Main Library')
             <input type="text" class="form-control" name="verify" placeholder="Enter ID or Name" required>
+        @endif
         </div>
         <input type="text" name="library" value="{{ $rrAssignment->category }}" style="display: none;" required>
         @if($rrAssignment->category == 'Main Library')
         <div class="glass-toolbar">
+            <input type="text" class="form-control" name="verify" placeholder="Enter ID or Name" required>
         <select name="section" id="" required><option value="" disabled selected>Select section</option>
           <option class="glass-button" value="Filipiniana">Filipiniana</option>
           <option class="glass-button" value="E-Library">E-Library</option>

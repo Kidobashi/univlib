@@ -9,17 +9,19 @@
 </head>
 <body>
     <style>
+        thead, tr, td, th{
+            border: 1px solid;
+        }
         table{
             position: relative;
             top: 50px;
-            right:70px;
+            right:50px;
         }
         td{
             width:200px;
             max-width: 300px;
             margin-left: 10px;
             margin-right: 10px;
-            padding: 2px;
             text-align: center;
         }
 
@@ -48,7 +50,6 @@
                             </thead>
                         <tbody>
                             @foreach ($data as $dat)
-                            <th scope="row">
                                 <tr>
                                     <td>
                                         {{ $dat->idNumber }}
@@ -66,7 +67,6 @@
                                         {{ $dat->section }}
                                     </td>
                                 </tr>
-                            </th>
                             @endforeach
                         </tbody>
                    </table>
