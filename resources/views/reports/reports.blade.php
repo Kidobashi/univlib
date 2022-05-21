@@ -12,11 +12,13 @@
     <h3 value="">{{ $searchDate }}</h3>
     <table class="table" id='reports' style="margin: 40px 0;">
         <thead>
-            <th scope="col">ID Number</th>
-            <th scope="co l">Name</th>
-            <th scope="col">College</th>
-            <th scope="col">Course</th>
-            <th scope="col">Section</th>
+            <tr>
+                <th scope="col">ID Number</th>
+                <th scope="co l">Name</th>
+                <th scope="col">College</th>
+                <th scope="col">Course</th>
+                <th scope="col">Section</th>
+            </tr>
         </thead>
         <tbody>
             @foreach ($reportDate as $report)
@@ -41,7 +43,7 @@
         </tbody>
     </table>
     {{ $reportDate->links() }}
-    <a class="btn btn-success" style="float: right;"  href=" {{ route('data', ['created_at' => $searchDate ])}} "  >Generate PDF</a>
+    <a class="btn btn-success" style="float: right;"  href=" {{ url('create-pdf', ['created_at' => $searchDate ])}} "  >Generate PDF</a>
     </form>
 </div>
 

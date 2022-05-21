@@ -19,9 +19,9 @@ class ReportsController extends Controller
         if(Gate::denies('logged-in')){
             return view('welcome');
         }
-        
+
         $currentDate = date('Y-m-d');
-       
+
         $repDate = $currentDate;
 
         $searchDate = $report->input('searchDate');
@@ -33,11 +33,4 @@ class ReportsController extends Controller
             return view('reports.reports')->with(['reportDate' => Visits::paginate(10)])->with('searchDate' , $searchDate)->with('repDate', $repDate);
         }
     }
-
-    public function downloadPDF(){
-        $visits = Visits::all();
-        $pdf = PDF::loadView('reports.reports', compact('visits'));
-        return $pdf->download('visits.pdf');    
-    }
-
 }

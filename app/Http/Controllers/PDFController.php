@@ -19,9 +19,12 @@ class PDFController extends Controller
         ->where('created_at', 'LIKE', "%{$created_at}%")
         ->get();
 
+        $date = $created_at;
+        //dd($date);
+
         $pdf = PDF::loadView('reports.invoice', ['data'=> $data]);
         //dd($data);
-    
+
         //return $pdf->stream('itsolutionstf.pdf');
 
         return view('reports.invoice')->with(['data'=> $data]);

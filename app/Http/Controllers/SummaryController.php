@@ -19,6 +19,8 @@ class SummaryController extends Controller
 
     $visits = Visits::where('created_at', 'LIKE', "%{$repDate}%")
         ->get()->count();
+
+    //dd($visits);
     //$visits = Visits::query('*')->where('created_at', 'LIKE', "%{$searchDate}%")->distinct('studentName')->get()->count();
 
     return view('dashboard')->with('visits', $visits);

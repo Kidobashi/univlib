@@ -29,5 +29,9 @@ class ReadingRoomSeeder extends Seeder
         DB::table('librarian_cat')->insert([
             'category' => 'CON Librarian'
         ]);
+
+        DB::table('librarian_cat')->insert([
+            'category' => 'Main Library'
+        ]);
     }
 }

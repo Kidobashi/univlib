@@ -31,34 +31,23 @@ class StudentsController extends Controller
                 'course' => ' ',
                 'section' => request('section'),
                 'library' => request('library'),
+                'created_at' => date('Y-m-d')
             ]);
             return redirect("/student")->withSuccess( $verify.' You are verified, Welcome!');
         }
             else{
-                Visits::insert([
+                Visits::insert ([
                     'idNumber' => $verify,
                     'studentName' => $data->name,
                     'college' => $data->student_college,
                     'course' => $data->deg_program,
                     'section' => request('section'),
                     'library' => request('library'),
+                    'created_at' => date('Y-m-d')
                 ]);
                 return redirect("/student")->withSuccess( $data->name.' You are verified, Welcome!');
             }
         //return dd($data);
-    }
-
-    public function downloadPDF(){
-        $visits = Visits::all();
-        $pdf = PDF::loadView('reports.reports', compact('visits'));
-        return $pdf->download('visits.pdf');
-    }
-
-    function createPDF(){
-        $data  = Visits::all();
-        view()->share('visits', $data);
-        $pdf = PDF::loadView('pdf_view' , $data);
-        return $pdf->download('pdf_file.pdf');
     }
 
     function store(Request $id)

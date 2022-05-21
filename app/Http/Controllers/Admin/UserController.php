@@ -233,7 +233,7 @@ class UserController extends Controller
                 'category' => 'required',
             ]);
 
-            LibrarianUsers::insert([
+            $data = LibrarianUsers::insert([
                 'user_id' => $request->id,
                 'category_id' => $request->category,
             ]);

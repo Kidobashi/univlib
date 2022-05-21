@@ -22,7 +22,7 @@
             <div class="card card-chart">
                 <div class="card-header">
                     <h2 class="card-category" style="font-size: 20px; font-weight: bold;">Daily Visits</h2>
-
+                    <input type="text" name="searchDate" style="display: none;" value="date('Y-m-d')">
                     <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i>{{ $visits }}</h3>
                 </div>
                 <div class="card-body">

@@ -8,45 +8,70 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        table{
+            position: relative;
+            top: 50px;
+            right:70px;
+        }
+        td{
+            width:200px;
+            max-width: 300px;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding: 2px;
+            text-align: center;
+        }
+
+        th {
+            width:200px;
+            max-width: 300px;
+            height:30px;
+        }
+    </style>
     <div class="container">
         <div class="card">
                 <div class="card" id="card">
                     <img src="/images/cmulogo.png" alt="CMUlogo" style="position:relative; float:left; left:-40px; top:-65px; width: 100px; height:100px;">
-                    <h2 style="position: absolute; left: 520px; top: 80px;">Central Mindanao University</h2>
-                    <table class="table" style="margin: 40px 0;">
-                        <thead>
-                            <th scope="col">ID Number</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">College</th>
-                            <th scope="col">Course</th>
-                            <th scope="col">Section</th>
-                            <th scope="col">Date</th>
-                        </thead>
+                    <h2 style="position: absolute; left: 800px; top: 80px;">Central Mindanao University</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                          <table class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>ID Number</th>
+                                    <th>Name</th>
+                                    <th>College</th>
+                                    <th>Course</th>
+                                    <th>Section</th>
+                                </tr>
+                            </thead>
                         <tbody>
                             @foreach ($data as $dat)
+                            <th scope="row">
                                 <tr>
                                     <td>
                                         {{ $dat->idNumber }}
                                     </td>
-                                    <td>
+                                    <td >
                                         {{ $dat->studentName }}
                                     </td>
-                                    <td>
+                                    <td >
                                         {{ $dat->college }}
                                     </td>
-                                    <td>
-                                        {{ $dat->course }} 
+                                    <td >
+                                        {{ $dat->course }}
                                     </td>
                                     <td>
                                         {{ $dat->section }}
                                     </td>
-                                    <td>
-                                        {{ $dat->created_at }}
-                                    </td>
                                 </tr>
+                            </th>
                             @endforeach
                         </tbody>
                    </table>
+                </div>
+            </div>
                 </form>
              </div>
         </div>
