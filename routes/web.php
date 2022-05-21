@@ -29,37 +29,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/app', function(){
-    return view('app');
-});
-
 Route::get('/about', function(){
     return view('easteregg');
-});
-
-
-Route::get('/dash', function(){
-    return view('usermngt/dashboard');
-});
-
-Route::get('/faculty', function(){
-    return view('faculty');
 });
 
 Route::get('/reports', function(){
     return view('reports/reports');
 });
 
-//Route::get('/invoice', function(){
-    //return view('reports/invoice');
-   // $pdf = PDF::loadView('reports/invoice');
-    //return $pdf->download('invoice.pdf');
-// });
-
 Route::group(['middleware' => 'auth.isLibrarian'], function () {
     //Reports
-    Route::get('/reports/pdf', [StudentsController::class, 'downloadPDF']);
     Route::get('/reports', [ReportsController::class, 'index']);
     Route::get('/reports', [ReportsController::class, 'getReports'])->name('searchDate');
     Route::get('/students', [StudentsController::class, 'index']);
@@ -80,12 +59,6 @@ Route::group(['middleware' => 'auth.isLibrarian'], function () {
     //Summary
     Route::get('dashboard', [SummaryController::class, 'dailyVisits'])->name('visits');
 });
-//Route::get('/invoice', [ReportsController::class, 'invoice'])->name('reportDate');
-//Summary
-//Route::get('create-pdf/reportDate', [ReportsController::class, 'getReports'])->name('reportDate');
-//Route::get('/', [ReportsController::class, 'index']);
-//Route::get('/', [StudentsController::class, 'checkId'])->name('data');
-//Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();
 
@@ -106,6 +79,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
-    //Route::get('/students', [StudentsController::class, 'index']);
 });
 

@@ -156,7 +156,7 @@ class UserController extends Controller
             'action' => "edit",
         ]);
 
-        return redirect(route('admin.users.index'));
+        return redirect(route('admin.users.index'))->with('flash-message','You have edited the user');
     }
 
     /**
