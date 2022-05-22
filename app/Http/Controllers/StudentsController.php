@@ -33,7 +33,7 @@ class StudentsController extends Controller
                 'library' => request('library'),
                 'created_at' => date('Y-m-d')
             ]);
-            return redirect("/student")->withSuccess( $verify.' You are verified, Welcome!');
+            return redirect("/student")->withSuccess( 'Welcome, '. $data->name .'!');
         }
             else{
                 Visits::insert ([
@@ -45,7 +45,7 @@ class StudentsController extends Controller
                     'library' => request('library'),
                     'created_at' => date('Y-m-d')
                 ]);
-                return redirect("/student")->withSuccess( $data->name.' You are verified, Welcome!');
+                return redirect("/student")->withSuccess( 'Welcome, '. $data->name .'!');
             }
         //return dd($data);
     }

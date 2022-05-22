@@ -4,7 +4,7 @@
   height: 500px;
   color: #fff;
   margin: 40px auto;
-  background-color: rgba(255,255,255,0.06);
+  background-color: #578F53;
   border: 1px solid rgba(255,255,255,0.1);
   width: 100%;
   border-radius: 15px;
@@ -30,7 +30,7 @@ input[type=text], select {
   font-size: 30px;
   text-align: center;
   color: black;
-  background-color: #ccc;
+  background-color: white;
 }
 
 .submit{
@@ -101,7 +101,7 @@ input[type=text], select {
 /* Extra styles for demo */
 /* Article:  https://superdevresources.com/glassmorphism-ui-css/ */
 body {
-  background: url("/images/libbg.jpg") no-repeat center center fixed;
+  background-color: #eadfce;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -110,7 +110,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.glass-panel { 
+.glass-panel {
   max-width: 800px;
 }
 
@@ -129,9 +129,8 @@ body {
   text-align: center;
   margin: 0 auto;
   text-decoration: none;
-  color: #fff;
+  color: white;
   padding-top: 60px;
-  color: rgba(255,255,255,0.8);
 }
 
 p {
@@ -151,43 +150,22 @@ select option{
   position: absolute;
   align-items: center;
   right: 52px;
-  bottom: 10px;
+  bottom: 20px;
   height:50px;
-  background-color: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
   width: 80%;
   border-radius: 15px;
-  padding: 32px;
-  backdrop-filter: blur(10px);
+  padding: 20px;
+  backdrop-filter: blur(5px);
   font-weight: 400;
+  background-color: white;
+  border: 3px solid green;
 }
 
-.alert::after{
+.alert h3::after{
   transition-delay: 3000ms;
   display: none;
 }
 
 .alert h3{
   text-shadow: 0 0 2px #ccc;
-}
-
-@keyframes dropIn{
-  from {transform: translateY(-500px);}
-  to { transform: translateY(0);}
-}
-
-.card{
-  animation: dropIn 1s ease forwards;
-}
-
-.card ace {
-  animation-delay: 100ms;
-}
-
-.card deuce {
-  animation-delay: 200ms;
-}
-
-.card trey {
-  animation-delay: 300ms;
 }
