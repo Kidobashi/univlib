@@ -23,7 +23,13 @@ use Illuminate\Support\Facades\Log;
 //Admin Routes
 Route::prefix('admin')->middleware(['auth', 'auth.isAdmin'])->name('admin.')->group(function(){
     Route::resource('/users', UserController::class);
+    Route::patch('users/{id?}/edit', [UserController::class, 'update']);
 });
+
+Route::post('assignLibrarian', [UserController::class, 'asssignLibrarian'])->name('asssign');
+Route::get('showLibrarian/{id}', [UserController::class, 'librarianCategory'])->name('category');
+Route::get('showLibrarian/{id}', [UserController::class, 'showLibrarian'])->name('roles');
+Route::get('librarianCategory/{id?}', [UserController::class, 'librarianCategory']);
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,10 +58,6 @@ Route::group(['middleware' => 'auth.isLibrarian'], function () {
     Route::get('create-pdf', [PDFController::class, 'index'])->name('index');
     Route::get('create-pdf/{created_at?}', [PDFController::class, 'createPDF'])->name('data')->name('date');
     //Librarian Assignment
-    Route::post('assignLibrarian', [UserController::class, 'asssignLibrarian'])->name('asssign');
-    Route::get('showLibrarian/{id}', [UserController::class, 'librarianCategory'])->name('category');
-    Route::get('showLibrarian/{id}', [UserController::class, 'showLibrarian'])->name('roles');
-    Route::get('librarianCategory/{id?}', [UserController::class, 'librarianCategory']);
     //Summary
     Route::get('dashboard', [SummaryController::class, 'dailyVisits'])->name('visits');
 });

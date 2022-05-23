@@ -4,12 +4,15 @@
   height: 500px;
   color: #fff;
   margin: 40px auto;
-  background-color: #578F53;
   border: 1px solid rgba(255,255,255,0.1);
   width: 100%;
-  border-radius: 15px;
   padding: 32px;
-  backdrop-filter: blur(10px);
+  background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .mb-3 {
@@ -101,7 +104,8 @@ input[type=text], select {
 /* Extra styles for demo */
 /* Article:  https://superdevresources.com/glassmorphism-ui-css/ */
 body {
-  background-color: #eadfce;
+    background-image: url("/images/edited.jpg");
+  /* background-color: #eadfce; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -157,8 +161,7 @@ select option{
   padding: 20px;
   backdrop-filter: blur(5px);
   font-weight: 400;
-  background-color: white;
-  border: 3px solid green;
+  /* border: 3px solid green; */
 }
 
 .alert h3::after{

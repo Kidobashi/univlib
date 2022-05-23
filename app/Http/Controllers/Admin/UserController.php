@@ -25,10 +25,10 @@ class UserController extends Controller
     public function index()
     {
         $assign = User::query('category_id')
-        ->join('librarian_users', 'librarian_users.user_id', '=', 'users.id')->paginate(10);
+        ->join('librarian_users', 'librarian_users.user_id', '=', 'users.id');
 
         $users = User::query('users.id', 'name', 'email')
-        ->join('roles_user', 'user_id', '=', 'users.id')
+        // ->join('roles_user', 'user_id', '=', 'users.id')
         ->paginate(10);
 
         //$users = array_merge(['data' => $data], ['assign' => $assign]);
@@ -135,12 +135,17 @@ class UserController extends Controller
         //
         $user = User::find($id);
 
-        if(!$id){
+        if(!$id || $id == null){
             $request->session()->flash('error', 'Error. User does not exist');
             return redirect(route('admin.users.index'));
         }
 
-        $user->update($request->except(['_token', 'roles']));
+        //$user->update($request->except(['_token', 'roles']));
+
+        DB::table('roles_user')->where('user_id', $user->id)
+        ->update([
+            'roles_id' => $user->update($request->except(['_token', 'roles'])),
+        ]);
 
         $user->roles()->sync($request->roles);
         $request->session()->flash('succcess', 'You have edited the user');

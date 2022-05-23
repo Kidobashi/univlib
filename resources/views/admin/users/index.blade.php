@@ -7,7 +7,6 @@
             <a class="btn btn-sm btn-success float-end" href="{{ route('admin.users.create') }}" role="button">Create</a>
         </div>
     </div>
-s
     <div class="card">
         <table class="table">
             <thead>
@@ -17,7 +16,6 @@ s
                 <th scope="col">Email</th>
                 <th scope="col">Actions</th>
                 <th scope="col">Role</th>
-                <th scope="col">Assignment</th>
               </tr>
             </thead>
             <tbody>
@@ -52,11 +50,6 @@ s
                             @csrf
                             @method("DELETE")
                         </form>
-
-                        <form id="reactivate-user-form-{{ $user->id }}"  method="PUT" style="display: none">
-                            @csrf
-                            @method("PUT")
-                        </form>
                     </td>
 
                     <td>
@@ -67,22 +60,13 @@ s
                         </button>
                         @endif
                         @if(implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Admin")
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" >
+                        <button type="button" class="btn btn-success">
                             Administrator
                         </button>
                         @endif
                         @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "User" )
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" disabled >
+                        <button type="button" class="btn btn-info">
                             User
-                        </button>
-                        @endif
-
-                        @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Admin|Librarian")
-                        <button onclick="sendData('{{$user->id}}', '{{$user->name}}')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
-                            Librarian
-                        </button>
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" disabled>
-                            Administrator
                         </button>
                         @endif
                     </td>
