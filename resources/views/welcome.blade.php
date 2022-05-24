@@ -1,12 +1,20 @@
 @extends('templates.main')
 
 @section('content')
+<style>
+    body {
+    background-image: url("/images/edited.jpg");
+  /* background-color: #eadfce; */
+     background-size: cover;
+    }
+</style>
     <div class="header py-7 py-lg-8" style="margin-top: 240px;">
         <div class="container">
             <div class="header-body text-center mb-7">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 col-md-6">
-                        <h1 class="text-black">{{ __('Welcome!') }}</h1>
+                        <h1 class="text-black"
+                        style="text-shadow: 2px 2px white;">{{ __('Welcome!') }}</h1>
                         <h3 class="text-lead text-dark">
                             {{-- {{ __('This is the CMU Library Monitoring System') }} --}}
                         </h3>
@@ -17,7 +25,7 @@
     </div>
 
     <div class="header py-7 py-lg-8" style="border: 1px solid; padding: 3px 3px; margin-top: 250px;">
-        <div class="container" style="padding: 3px; margin: 5px .2px; width: auto; background-color: #D3D3D3;">
+        <div class="container" style="padding: 3px; margin: 5px .2px; width: auto; background-color: white;">
             <div class="header-body text-center mb-7" style="border: 1px solid;">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 col-md-6">

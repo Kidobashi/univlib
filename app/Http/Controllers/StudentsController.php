@@ -23,6 +23,7 @@ class StudentsController extends Controller
             ->where('id_number', 'LIKE', "%{$verify}%")
             ->first();
 
+
         if($data === null){
             Visits::insert([
                 'idNumber' => 'visitor',
@@ -33,7 +34,7 @@ class StudentsController extends Controller
                 'library' => request('library'),
                 'created_at' => date('Y-m-d')
             ]);
-            return redirect("/student")->withSuccess( 'Welcome, '. $data->name .'!');
+            return redirect("/student")->withSuccess( 'Welcome, '. $verify .'!');
         }
             else{
                 Visits::insert ([

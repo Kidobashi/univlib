@@ -8,11 +8,11 @@
   width: 100%;
   padding: 32px;
   background: rgba( 255, 255, 255, 0.25 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .mb-3 {
@@ -61,54 +61,15 @@ input[type=text], select {
   transform: translateY(4px);
 }
 
-
-.glass-panel1 {
-    top: 100px;
-    position: relative;
-    max-width: 800px;
-    align-items: center;
-    left: 140px;
-    display: flex;
-    color: #fff;
-    margin: 40px auto;
-    background-color: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    width: 100%;
-    border-radius: 15px;
-    padding: 32px;
-    backdrop-filter: blur(10px);
-}
-
 .glass-toolbar {
   position: relative;
   top: -100px;
 }
-
-.glass-button:hover {
-  background-color: rgba(19, 14, 14, 0.986);
-  color: gold;
-  box-shadow: 0 5px;
-}
-
-.glass-button:active {
-  box-shadow: 0 5px gold;
-  transform: translateY(4px);
-}
-
-.glass-button::after {
-  box-shadow: 0 5px black;
-  transition: 20sec;
-}
-
-
 /* Extra styles for demo */
 /* Article:  https://superdevresources.com/glassmorphism-ui-css/ */
 body {
     background-image: url("/images/edited.jpg");
   /* background-color: #eadfce; */
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
@@ -148,27 +109,4 @@ p {
 
 select option{
   font-size: 28px;
-}
-
-.alert{
-  position: absolute;
-  align-items: center;
-  right: 52px;
-  bottom: 20px;
-  height:50px;
-  width: 80%;
-  border-radius: 15px;
-  padding: 20px;
-  backdrop-filter: blur(5px);
-  font-weight: 400;
-  /* border: 3px solid green; */
-}
-
-.alert h3::after{
-  transition-delay: 3000ms;
-  display: none;
-}
-
-.alert h3{
-  text-shadow: 0 0 2px #ccc;
 }

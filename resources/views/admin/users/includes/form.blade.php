@@ -66,7 +66,7 @@
 <div class="mb-3">
     @foreach ($roles as $role)
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="roles[]" value="
+            <input type="radio" class="form-check-input" name="roles[]" value="
                 {{ $role->id }}" id="{{ $role->name }}"
                 @isset($user)
                     @if(in_array($role->id, $user->roles->pluck('id')->toArray())) checked

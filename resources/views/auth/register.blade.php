@@ -1,14 +1,14 @@
 @extends('templates.main')
 
 @section('content')
-    <div class="row">
+    <div class=row">
         <div class="col-md-5 ml-auto">
 
         </div>
-        <div class="col-md-7 mr-auto">
-            <div class="card card-register card-white" style="width: 490px; position: absolute; top:100px; left: 725px;">
+        <div class="d-flex justify-content-center" style="align-items: center;">
+            <div class="card card-register card-white" style="width:auto; top:80px;">
                 <div class="card-header">
-                    <img class="card-img" src="{{ asset('black') }}/img/card-primary.png" alt="Card image">
+                <img class="card-img" src="/images/CMU-LOGO.png" alt="Card image" style="width: 300px;">
                     <h4 class="card-title">{{ __('Register') }}</h4>
                 </div>
                 <form class="form" method="post" action="{{ route('register') }}">

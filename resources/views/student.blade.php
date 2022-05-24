@@ -8,9 +8,8 @@
                 $rrAssignment = DB::table('librarian_cat')->select('category')
                 ->where('id', '=', $assignment->category_id)->first();
                 //dd($role);
-                ?>
+            ?>
 @endcan
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +17,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CMU Library and Reading Rooms</title>
-    <link href="/css/mainlib.css" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+<!-- Fonts -->
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+<!-- Styles -->
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+<link href="/css/mainlib.css" rel="stylesheet">
 </head>
 <body>
     <div class="glass-panel" style="margin-top:150px;">
@@ -40,7 +48,7 @@
             <input type="text" class="form-control" name="verify" placeholder="Enter ID or Name" required>
         @endif
         </div>
-        <input type="text" name="library" value="{{ $rrAssignment->category }}" style="display: none;" required>
+        <input type="text" name="library" value={{ $rrAssignment->category }} style="display: none;" required>
         @if($rrAssignment->category == 'Main Library')
         <div class="glass-toolbar">
             <input type="text" class="form-control" name="verify" placeholder="Enter ID or Name" required>
@@ -55,27 +63,33 @@
         </div>
         @endif
         <button type="submit" class="submit">Submit</button>
-        @if(Session::has('success'))
-        <div id="alert" class="alert alert-success">
-           <h3 style="display: block; color: white;
-           font-size: 20px;
-           text-shadow: -1px 1px 0 #000,
-                         1px 1px 0 #000,
-                        1px -1px 0 #000;
-                       -1px -1px 0 #000;">{{Session::get('success')}}</h3>
+
+    
         </div>
-        @endif
-    </div>
     </form>
     </div>
+    @if(Session::has('success'))
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div id="content" class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-body">
+                        <h3 style="display: block; color: black;">{{Session::get('success')}}</h3>
+                    </div>
+                </div>
+            </div>
+    </div>
+    @endif
 </body>
 </html>
-
+<script src="js/jq.js"></script>
 <script>
-window.setTimeout("closeHelpDiv();", 5000);
+$(window).on('load', function(){
+    $('#exampleModal').modal('show');
+});
+
+//  window.setTimeout("closeHelpDiv();", 5000);
 
 function closeHelpDiv(){
-var popup = document.getElementById("alert").style.display=" none";
-popup.classList.toggle("show");
+    $('#exampleModal').modal('hide');
 }
 </script>

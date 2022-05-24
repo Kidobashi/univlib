@@ -150,9 +150,14 @@ class UserController extends Controller
         $user->roles()->sync($request->roles);
         $request->session()->flash('succcess', 'You have edited the user');
 
+        LibrarianUsers::validate([
+            'user_id' => $id,
+            'category' => 'require',
+        ]);
+
         LibrarianUsers::create([
             'user_id' => $id,
-            'category' => request('category')
+            'category' => request('category'),
         ]);
 
         Logs::create([
@@ -233,12 +238,8 @@ class UserController extends Controller
             $request->session()->flash('error', 'Librarian is already assigned');
         }
         else{
-            $request->validate([
-                'id' => 'required',
-                'category' => 'required',
-            ]);
 
-            $data = LibrarianUsers::insert([
+            $data = LibrarianUsers::create([
                 'user_id' => $request->id,
                 'category_id' => $request->category,
             ]);
