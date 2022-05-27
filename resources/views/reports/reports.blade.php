@@ -1,9 +1,9 @@
 @extends('templates.main')
 @section('content')
-<form action="{{ route('searchDate') }}" method="GET">
+<form action="{{ route('searchDate') }}" method="GET" name="form" onsubmit="validate()">
     <div class="subdate" >
         <h1 style="position: absolute; float: left; padding: 10px;">Visit Reports</h1>
-        <input type="date" name="searchDate" placeholder="Report Date" style="position: relative; left: 915px; margin:20px 0;">
+        <input type="date" name="searchDate" placeholder="Report Date" style="position: relative; left: 915px; margin:20px 0;" onkeyup="stoppedTyping()" required>
         <button type="submit" class="submit"style="position: relative; left: 918px; margin-right:0px;">Search</button>
     </div>
 <div class="card" id="card">
@@ -43,10 +43,10 @@
         </tbody>
     </table>
     {{ $reportDate->links() }}
-    <a class="btn btn-success" style="float: right;"  href=" {{ url('create-pdf', ['created_at' => $searchDate ])}} "  >Generate PDF</a>
+        <a class="btn btn-success" id="genButton" style="float: right;" href=" {{ url('create-pdf', ['created_at' => $searchDate ])}}" disabled>Generate PDF</a>
     </form>
 </div>
-
+<script src="js/jq.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('#reports').Datable({

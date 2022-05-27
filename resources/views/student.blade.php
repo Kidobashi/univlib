@@ -52,7 +52,7 @@
         @if($rrAssignment->category == 'Main Library')
         <div class="glass-toolbar">
             <input type="text" class="form-control" name="verify" placeholder="Enter ID or Name" required>
-        <select name="section" id="" required><option value="" disabled selected>Select section</option>
+        <select name="section" id="" required><option value="" disabled selected>Select Section</option>
           <option class="glass-button" value="Filipiniana">Filipiniana</option>
           <option class="glass-button" value="E-Library">E-Library</option>
           <option class="glass-button" value="Serials">Serials</option>
@@ -63,8 +63,6 @@
         </div>
         @endif
         <button type="submit" class="submit">Submit</button>
-
-    
         </div>
     </form>
     </div>
@@ -87,9 +85,11 @@ $(window).on('load', function(){
     $('#exampleModal').modal('show');
 });
 
-//  window.setTimeout("closeHelpDiv();", 5000);
+window.setTimeout("closeHelpDiv();", 5000);
 
 function closeHelpDiv(){
     $('#exampleModal').modal('hide');
 }
+
+
 </script>
