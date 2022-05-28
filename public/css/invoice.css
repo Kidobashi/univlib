@@ -1,3 +1,8 @@
+@page {
+    size: A4;
+    margin: 0;
+}
+
 body {
     background-color: aliceblue;
     font-family:Calibri;
@@ -5,11 +10,32 @@ body {
 
 .container {
     width: 21cm;
-    min-height: 29.7cm;
     padding: 2cm;
     margin: 1cm auto;
-    border: 1px #D3D3D3 solid;
-    border-radius: 5px;
     background: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+body{
+    font-family:Calibri;
+}
+thead, tr, td, th{
+    border: 1px solid;
+}
+table{
+    position: relative;
+    top: 50px;
+    right:50px;
+}
+td{
+    width:200px;
+    max-width: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+th {
+    width:200px;
+    max-width: 300px;
+    height:30px;
 }

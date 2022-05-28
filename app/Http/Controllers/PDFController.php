@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Visits;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\PDF;
-use Dompdf\Dompdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Auth\Events\Validated;
-
+use Illuminate\Support\Facades\App;
 class PDFController extends Controller
 {
     //
@@ -30,18 +29,10 @@ class PDFController extends Controller
         $date = $created_at;
         //dd($date);
 
-        $pdf = new Dompdf();
-        $pdf = PDF::loadView('reports.invoice', ['data'=> $data]);
-        return $pdf->download();
-        //return view('reports.invoice')->with(['data'=> $data]);
+         $pdf = PDF::loadView('reports.invoice', ['data'=> $data]);
+
+        return view('reports.invoice')->with(['data'=> $data]);
         }
     }
 
-    public function pdfgen(){
-
-        $dompdf = new Dompdf();
-        $dompdf = PDF::loadView('reports.invoice');
-        $dompdf->render('reports.invoice');
-        $dompdf->download();
-    }
 }

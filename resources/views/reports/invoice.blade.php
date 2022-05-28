@@ -9,7 +9,8 @@
 </head>
 <body>
     <style>
-        body{
+        @media print {
+            body{
             font-family:Calibri;
         }
         thead, tr, td, th{
@@ -32,6 +33,7 @@
             width:200px;
             max-width: 300px;
             height:30px;
+        }
         }
     </style>
     <div class="container">
