@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Visits;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\PDF;
+use Dompdf\Dompdf;
 use Illuminate\Auth\Events\Validated;
 
 class PDFController extends Controller
@@ -29,12 +30,18 @@ class PDFController extends Controller
         $date = $created_at;
         //dd($date);
 
+        $pdf = new Dompdf();
         $pdf = PDF::loadView('reports.invoice', ['data'=> $data]);
-        //dd($data);
-
-        //return $pdf->stream('itsolutionstf.pdf');
-
-        return view('reports.invoice')->with(['data'=> $data]);
+        return $pdf->download();
+        //return view('reports.invoice')->with(['data'=> $data]);
         }
+    }
+
+    public function pdfgen(){
+
+        $dompdf = new Dompdf();
+        $dompdf = PDF::loadView('reports.invoice');
+        $dompdf->render('reports.invoice');
+        $dompdf->download();
     }
 }

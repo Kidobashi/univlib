@@ -1,5 +1,6 @@
 body {
     background-color: aliceblue;
+    font-family:Calibri;
 }
 
 .container {
@@ -11,8 +12,4 @@ body {
     border-radius: 5px;
     background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.card {
-
 }

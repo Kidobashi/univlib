@@ -8,7 +8,7 @@
     </div>
 <div class="card" id="card">
     <img src="/images/cmulogo.png" alt="CMUlogo" style="float:left;width: 100px; height:100px;">
-    <h2 style="position: absolute; left: 380px;">Central Mindanao University</h2>
+    <h2 style="position: absolute; left: 40px;">Central Mindanao University</h2>
     <h3 value="">{{ $searchDate }}</h3>
     <table class="table" id='reports' style="margin: 40px 0;">
         <thead>
