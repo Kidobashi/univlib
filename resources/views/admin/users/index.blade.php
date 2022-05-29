@@ -16,7 +16,6 @@
                 <th scope="col">Email</th>
                 <th scope="col">Actions</th>
                 <th scope="col">Role</th>
-                <th scope="col">Assignment</th>
               </tr>
             </thead>
             <tbody>
@@ -53,12 +52,18 @@
                         </form>
                     </td>
 
+                    <?php
+
+                    ?>
+
                     <td>
-                        <!-- {{ implode('|', $user->roles()->get()->pluck('name')->toArray()) }} -->
                         @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Librarian" )
-                        <button onclick="sendData('{{$user->id}}', '{{$user->name}}')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+                        <button onclick="sendData('{{$user->id}}', '{{$user->name}}')" type="button" id="cat" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
                             Librarian
                         </button>
+                        <div class="hide">
+                            
+                        </div>
                         @endif
                         @if(implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Admin")
                         <button type="button" class="btn btn-success">
@@ -92,20 +97,20 @@
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">      Assign <span id="modal-name"></span> as </h5>
+                <div class="modal-header" style="background:#578F53;">
+                  <h5 class="modal-title" id="exampleModalLabel" style="color:white; font-size: 25px;">      Assign <span id="modal-name"></span> as </h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true" style="color:black; font-size: 20px;">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body d-flex justify-content-center">
 
                 <form action="{{ url('assignLibrarian') }}" method="POST">
                 @csrf
-                        <input style="display:none;"id="modal-id" type="text" name="id" value="">
-                        <select name="category">
+                    <input style="display:none;"id="modal-id" type="text" name="id" value="">
+                        <select name="category" style="height:40px; border-radius: 3px; margin-right:25px;">
                             @foreach($category as $cat)
-                                <option value="{{$cat->id}}">
+                                <option value="{{$cat->id}}" style="font-size: 20px; font-weight: bolder;">
                                         {{ $cat->category }}
                                 </option>
                                 @endforeach

@@ -12,5 +12,10 @@ class Librarian_Cat extends Model
 
     protected $fillable = [
         'id',
+
     ];
+
+    public function category(){
+        return DB::table('librarian_cat')->select('*')->get();
+    }
 }

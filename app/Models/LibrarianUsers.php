@@ -14,4 +14,9 @@ class LibrarianUsers extends Model
         'user_id',
         'category_id',
     ];
+
+    public function assignemnt(){
+        return DB::table('librarian_users')->select('*')->get();
+    }
+
 }

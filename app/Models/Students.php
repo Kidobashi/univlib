@@ -14,5 +14,5 @@ class Students extends Model
         'name'
     ];
 
-    public $connection = "mysql2";
+    public $connection = "sqlsrv_mis";
 }

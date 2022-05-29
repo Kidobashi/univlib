@@ -19,8 +19,8 @@ class StudentsController extends Controller
     function checkId(Request $id){
         $verify = $id->input('verify');
 
-        $data = Students::select('name', 'deg_program', 'student_college')
-            ->where('id_number', 'LIKE', "%{$verify}%")
+        $data = Students::select('StudentName', 'CollegeName')
+            ->where('StudentID', 'LIKE', "%{$verify}%")
             ->first();
 
 
@@ -39,14 +39,14 @@ class StudentsController extends Controller
             else{
                 Visits::insert ([
                     'idNumber' => $verify,
-                    'studentName' => $data->name,
-                    'college' => $data->student_college,
-                    'course' => $data->deg_program,
+                    'studentName' => $data->StudentName,
+                    'college' => $data->CollegeName,
+                    'course' => 'test',
                     'section' => request('section'),
                     'library' => request('library'),
                     'created_at' => date('Y-m-d')
                 ]);
-                return redirect("/student")->withSuccess( 'Welcome, '. $data->name .'!');
+                return redirect("/student")->withSuccess( 'Welcome, '. $data->StudentName .'!');
             }
         //return dd($data);
     }
