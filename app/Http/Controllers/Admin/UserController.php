@@ -27,6 +27,8 @@ class UserController extends Controller
         $assign = User::query('category_id')
         ->join('librarian_users', 'librarian_users.user_id', '=', 'users.id');
 
+        
+
         $users = User::query('users.id', 'name', 'email')
         // ->join('roles_user', 'user_id', '=', 'users.id')
         ->paginate(10);
