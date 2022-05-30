@@ -25,6 +25,24 @@
                     <input type="text" name="searchDate" style="display: none;" value="date('Y-m-d')">
                     <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i>{{ $visits }}</h3>
                 </div>
+            <?php
+                $user = DB::table('users')->find(auth()->user()->id);
+
+                $assignment = DB::table('librarian_users')->select('category_id')
+                ->where('user_id', '=', auth()->user()->id)->first();
+
+                $rrAssignment = DB::table('librarian_cat')->select('category')
+                ->where('id', '=', $assignment->category_id)->first();
+
+                $rr = DB::table('visits')->select('library')->where('library', $rrAssignment->category)
+                ->get()->count();
+            ?>
+
+                <div class="card-header">
+                    <h2 class="card-category" style="font-size: 20px; font-weight: bold;">Reading Room</h2>
+                    <input type="text" name="searchDate" style="display: none;" value="date('Y-m-d')">
+                    <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i>{{ $rr }}</h3>
+                </div>
                 <div class="card-body">
                     <div class="chart-area">
                         {{-- <canvas id="CountryChart"></canvas> --}}

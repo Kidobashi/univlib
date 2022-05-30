@@ -48,7 +48,7 @@
             <input type="text" class="form-control" name="verify" placeholder="Enter ID or Name" required>
         @endif
         </div>
-        <input type="text" name="library" value={{ $rrAssignment->category }} style="display: none;" required>
+        <input type="text" name="library" value='{{ $rrAssignment->category }}' style="display: none;" required>
         @if($rrAssignment->category == 'Main Library')
         <div class="glass-toolbar">
             <input type="text" class="form-control" name="verify" placeholder="Enter ID or Name" required>

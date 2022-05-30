@@ -63,9 +63,9 @@
                         </button>
                         <div class="hide">
                             <?php
-                                $assignments = DB::table('librarian_users')->select('category_id')->where('user_id',$user->id)->first();
+                                // $assignments = DB::table('librarian_users')->select('category_id')->where('user_id',$user->id)->first();
 
-                                $ass = DB::table('librarian_cat')->select('category')->where('id', $assignments->category_id)->get();
+                                // $ass = DB::table('librarian_cat')->select('category')->where('id', $assignments->category_id)->get();
                                 // dd($ass->first()->category);
 
                             ?>

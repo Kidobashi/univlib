@@ -60,6 +60,7 @@ Route::group(['middleware' => 'auth.isLibrarian'], function () {
     //Librarian Assignment
     //Summary
     Route::get('dashboard', [SummaryController::class, 'dailyVisits'])->name('visits');
+    // Route::get('dashboard', [SummaryController::class, 'readingRooms'])->name('rr');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();

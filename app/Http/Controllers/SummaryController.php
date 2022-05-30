@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Visits;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class SummaryController extends Controller
@@ -41,5 +42,20 @@ class SummaryController extends Controller
 
     return view('home')->with('visits', $visits);
     //return view('reports.reports')->with(['reportDate' => Visits::paginate(10)])->with('searchDate' , $searchDate)->with('repDate', $repDate);\
+    }
+
+    public function readingRooms(){
+        $user = DB::table('users')->find(auth()->user()->id);
+
+        $assignment = DB::table('librarian_users')->select('category_id')
+        ->where('user_id', '=', auth()->user()->id)->first();
+
+        $rrAssignment = DB::table('librarian_cat')->select('category')
+        ->where('id', '=', $assignment->category_id)->first();
+
+        $rr = Visits::where('library',$rrAssignment->category)
+        ->get()->count();
+
+        return view('dashboard')->with('rr', $rr);
     }
 }
