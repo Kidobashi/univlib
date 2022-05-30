@@ -37,15 +37,23 @@
                 $rr = DB::table('visits')->select('library')->where('library', $rrAssignment->category)
                 ->get()->count();
             ?>
-
+                <div class="card-body">
+                    <div class="chart-area">
+                        {{-- <canvas id="CountryChart"></canvas> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card card-chart">
                 <div class="card-header">
-                    <h2 class="card-category" style="font-size: 20px; font-weight: bold;">Reading Room</h2>
+                    <h2 class="card-category" style="font-size: 20px; font-weight: bold;">{{ $rrAssignment->category }}</h2>
                     <input type="text" name="searchDate" style="display: none;" value="date('Y-m-d')">
                     <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i>{{ $rr }}</h3>
                 </div>
                 <div class="card-body">
                     <div class="chart-area">
-                        {{-- <canvas id="CountryChart"></canvas> --}}
+                        {{-- <canvas id="chartLinePurple"></canvas> --}}
                     </div>
                 </div>
             </div>
