@@ -23,7 +23,6 @@ class StudentsController extends Controller
             ->where('StudentID', 'LIKE', "%{$verify}%")
             ->first();
 
-
         if($data === null){
             Visits::insert([
                 'idNumber' => 'visitor',

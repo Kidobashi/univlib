@@ -22,7 +22,7 @@ class PDFController extends Controller
         }
         else{
 
-        $data = Visits::query()->select('idNumber', 'studentName', 'college', 'course', 'section')
+        $data = Visits::query()->select('idNumber', 'studentName', 'college', 'course', 'section', 'library', 'created_at')
         ->where('created_at', 'LIKE', "%{$created_at}%")
         ->get();
 

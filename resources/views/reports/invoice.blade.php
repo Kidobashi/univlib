@@ -51,6 +51,11 @@
                     <p style="position:relative; bottom:70px; right:27px; margin-top:0 !impotant; padding: 0 !important; font-size:17px;">UNIVERSITY LIBRARY</p>
                     <div class="row justify-content-center">
                         <h2 style="position: relative; left: 338px; bottom: 75px;">Visit Report</h2>
+                            <?php
+                                $getDate = $data->first()->created_at;
+                                $actDate = date('Y-m-d', strtotime($getDate));
+                            ?>
+                        <h3 style="position: relative; left: 338px; bottom: 75px; text-decoration: underline;">Date: {{ $actDate }}</h3>
                         <div class="col-auto">
                           <table class="table table-responsive" style="absolute: absolute; right: 8px; top:-52px;">
                             <thead>
@@ -60,6 +65,7 @@
                                     <th>College</th>
                                     <th>Course</th>
                                     <th>Section</th>
+                                    <th>Library</th>
                                 </tr>
                             </thead>
                         <tbody>
@@ -79,6 +85,9 @@
                                     </td>
                                     <td>
                                         {{ $dat->section }}
+                                    </td>
+                                    <td>
+                                        {{ $dat->library }}
                                     </td>
                                 </tr>
                             @endforeach

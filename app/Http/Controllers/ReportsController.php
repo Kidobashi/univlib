@@ -20,6 +20,8 @@ class ReportsController extends Controller
             return view('welcome');
         }
 
+        $reportDate = DB::table('visits')->select('*')->groupBy('studentName');
+
         $currentDate = date('Y-m-d');
 
         $repDate = $currentDate;
@@ -30,7 +32,7 @@ class ReportsController extends Controller
         ->get();
 
         if(Gate::allows('is-librarian')){
-            return view('reports.reports')->with(['reportDate' => Visits::paginate(10)])->with('searchDate' , $searchDate)->with('repDate', $repDate);
+            return view('reports.reports')->with(['reportDate' => $reportDate])->with('searchDate' , $searchDate)->with('repDate', $repDate);
         }
     }
 }

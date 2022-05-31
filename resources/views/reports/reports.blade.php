@@ -18,6 +18,7 @@
                 <th scope="col">College</th>
                 <th scope="col">Course</th>
                 <th scope="col">Section</th>
+                <th scope="col">Library</th>
             </tr>
         </thead>
         <tbody>
@@ -38,11 +39,13 @@
                     <td>
                         {{ $report->section }}
                     </td>
+                    <td>
+                        {{ $report->library }}
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    {{ $reportDate->links() }}
         <a class="btn btn-success" id="genButton" style="float: right;" href=" {{ url('create-pdf', ['created_at' => $searchDate ])}}" disabled>Generate PDF</a>
     </form>
 </div>
