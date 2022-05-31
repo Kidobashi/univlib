@@ -58,18 +58,15 @@
 
                     <td>
                         @if( implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Librarian" )
-                        <button onclick="sendData('{{$user->id}}', '{{$user->name}}')" type="button" id="cat" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+                        <?php
+                                $assignments = DB::table('librarian_users')->select('category_id')->where('user_id',$user->id)->first();
+
+                                $ass = DB::table('librarian_cat')->select('id', 'category')->where('id', $assignments->category_id)->first();
+                            ?>
+                        <button onclick="sendData('{{$user->id}}', '{{$user->name}}')" title="{{ $ass->category }}" type="button" id="cat" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
                             Librarian
                         </button>
-                        <div class="hide">
-                            <?php
-                                // $assignments = DB::table('librarian_users')->select('category_id')->where('user_id',$user->id)->first();
-
-                                // $ass = DB::table('librarian_cat')->select('category')->where('id', $assignments->category_id)->get();
-                                // dd($ass->first()->category);
-
-                            ?>
-                            {{-- {{ $ass->first()->category }} --}}
+                        <div class="hide" style=" float: right;">
                         </div>
                         @endif
                         @if(implode('|', $user->roles()->get()->pluck('name')->toArray()) == "Admin")
