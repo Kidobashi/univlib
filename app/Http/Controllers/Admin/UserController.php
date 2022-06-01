@@ -219,25 +219,18 @@ class UserController extends Controller
             'category_id' => 3
         ]);
 
-        //dd($category);
-        //return view('admin.showLibrarian.index', ['category' => $category]);
     }
 
 
     public function asssignLibrarian(Request $request){
 
-        if(LibrarianUsers::where('user_id', $request->id)->exists())
-        {
-            $request->session()->flash('error', 'Librarian is already assigned');
-        }
-        else{
+        $id = LibrarianUsers::find($request->id);
 
-            $data = LibrarianUsers::create([
-                'user_id' => $request->id,
-                'category_id' => $request->category,
-            ]);
-            $request->session()->flash('success', 'Successfully assigned librarian');
-        }
+        DB::table('librarian_users')
+        ->where('user_id', $request->id)
+        ->update(['category_id' => $request->category]);
+
+        $request->session()->flash('success', 'Successfully assigned librarian');
         return redirect()->route('admin.users.index');
     }
 }
