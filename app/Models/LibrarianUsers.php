@@ -10,6 +10,8 @@ class LibrarianUsers extends Model
 {
     use HasFactory;
 
+    protected $table='librarian_users';
+
     protected $fillable = [
         'user_id',
         'category_id',

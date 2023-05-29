@@ -1,15 +1,4 @@
-@can('is-librarian')
-            <?php
-                $user = DB::table('users')->find(auth()->user()->id);
 
-                $assignment = DB::table('librarian_users')->select('category_id')
-                ->where('user_id', '=', auth()->user()->id)->first();
-
-                $rrAssignment = DB::table('librarian_cat')->select('category')
-                ->where('id', '=', $assignment->category_id)->first();
-                //dd($role);
-            ?>
-@endcan
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,6 +79,4 @@ window.setTimeout("closeHelpDiv();", 5000);
 function closeHelpDiv(){
     $('#exampleModal').modal('hide');
 }
-
-
 </script>

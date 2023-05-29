@@ -74,4 +74,9 @@ class User extends Authenticatable
               ->where("roles_id","=",2)
               ->count() > 0;
     }
+
+    public function librarianUser()
+    {
+        return $this->hasOne(LibrarianUsers::class);
+    }
 }

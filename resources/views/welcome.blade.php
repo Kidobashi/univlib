@@ -3,23 +3,27 @@
 @section('content')
 <style>
     body {
-    background-image: url("/images/edited.jpg");
-  /* background-color: #eadfce; */
-     background-size: cover;
+        height: 100%;
+        background-image: url("/images/edited.jpg");
+        background-size: cover;
     }
 </style>
-    <div class="header py-7 py-lg-8" style="margin-top: 240px;">
-        <div class="container">
+    <div class="header py-3">
+        <div class="container" style=" background-color: rgba(107, 142, 35, .9); border: 7px solid white;">
             <div class="header-body text-center mb-7">
                 <div class="row justify-content-center">
-                    <div class="col-lg-5 col-md-6">
-                        <h1 class="text-black"
-                        style="text-shadow: 6px 3px 4px white; font-size: 80px;
+                        <div class="col-lg-12 col-md-6">
+                            <img src="/images/CMU-LOGO.png" alt="CMUlogo" style="width: 200px; height:200px;">
+                            <h1 class="text-white"
+                            style="text-shadow: 6px 3px 4px black; font-size: 80px;
 
-                        ">{{ __('Welcome!') }}</h1>
-                        <h3 class="text-lead text-dark">
-                        </h3>
-                    </div>
+                            ">{{ __('Central Mindanao University') }}</h1>
+                        </div>
+                    <h2 class="text-lead text-warning display-4">
+                        <span>
+                            {{ __('Library Attendance System') }}
+                        </span>
+                    </h2>
                 </div>
             </div>
         </div>

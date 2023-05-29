@@ -25,6 +25,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">CMU

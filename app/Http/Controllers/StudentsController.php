@@ -13,7 +13,18 @@ class StudentsController extends Controller
 {
     //
     function index(){
-        return Students::all();
+        $user = DB::table('users')->find(auth()->user()->id);
+
+        $assignment = DB::table('librarian_users')->select('category_id')
+        ->where('user_id', '=', auth()->user()->id)->first();
+
+        $rrAssignment = DB::table('librarian_cat')->select('category')
+        ->where('id', '=', $assignment->category_id)->first();
+        // dd($rrAssignment);
+
+        return view('student')->with('rrAssignment', $rrAssignment)
+                            ->with('assignments', $assignment)
+                            ->with('users', $user);
     }
 
     function checkId(Request $id){

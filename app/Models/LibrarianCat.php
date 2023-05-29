@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Librarian_Cat extends Model
+class LibrarianCat extends Model
 {
+
+    protected $table='librarian_cat';
+
     use HasFactory;
 
     protected $fillable = [
@@ -15,4 +18,8 @@ class Librarian_Cat extends Model
         'category_id',
         'category',
     ];
+
+    public function users(){
+        return $this->belongsToMany('App\Models\User')->withPivot('librarian_users');
+    }
 }

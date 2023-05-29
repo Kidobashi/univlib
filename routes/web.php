@@ -43,7 +43,7 @@ Route::get('/reports', function(){
     return view('reports/reports');
 });
 
-Route::group(['middleware' => 'auth.isLibrarian'], function () {
+// Route::group(['middleware' => 'auth.isLibrarian'], function () {
     //Reports
     Route::get('/reports', [ReportsController::class, 'index']);
     Route::get('/reports', [ReportsController::class, 'getReports'])->name('searchDate');
@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth.isLibrarian'], function () {
     //Summary
     Route::get('dashboard', [SummaryController::class, 'dailyVisits'])->name('visits');
     // Route::get('dashboard', [SummaryController::class, 'readingRooms'])->name('rr');
-});
+// });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();
 
